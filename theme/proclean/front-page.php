@@ -17,7 +17,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-$theme_uri = get_template_directory_uri();
+// Helper to get attachment URL by ID
+$jk_get_img = function( $id ) {
+	return wp_get_attachment_url( $id );
+};
+
+// Image IDs from WordPress media library
+$img_hero_commercial   = $jk_get_img( 30 );  // bnr-HomepageCommercial.webp
+$img_hero_franchise    = $jk_get_img( 32 );  // bnr-homepage-franchise.webp
+$img_service_cleaning  = $jk_get_img( 27 );  // bnr-cleaning-services.webp
+$img_service_franchise = $jk_get_img( 29 );  // bnr-franchise-opportunities.webp
+$img_retention         = $jk_get_img( 28 );  // bnr-CustomerRetention2.png
+$img_blog_15           = $jk_get_img( 24 );  // Banner-Templet-15.png
+$img_blog_51           = $jk_get_img( 25 );  // Banner-Templet-51.png
+$img_blog_52           = $jk_get_img( 26 );  // Banner-Templet-52.png
+$img_spill_cleanup     = $jk_get_img( 44 );  // icon-SpillCleanup
+$img_disinfecting      = $jk_get_img( 41 );  // icon-Disinfecting
+$img_ep_products       = $jk_get_img( 42 );  // icon-EPProducts
+$img_extraction        = $jk_get_img( 43 );  // icon-Extraction
+$img_icon_orange       = $jk_get_img( 40 );  // icon-CircleCheck-Orange
+$img_icon_darkteal     = $jk_get_img( 39 );  // icon-CircleCheck-DarkTeal
+$img_mobile_hero       = $jk_get_img( 33 );  // BNR-Homepage-Mobile2-1-768x512.webp
 
 ?>
 	<!-- Hero Section -->
@@ -41,10 +61,14 @@ $theme_uri = get_template_directory_uri();
 					</div>
 				</div>
 				<div class="jk-hero-image">
-					<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-homepage-commercial.webp' ); ?>" alt="Commercial Cleaning" />
+					<?php if ( $img_hero_commercial ) : ?>
+						<img src="<?php echo esc_url( $img_hero_commercial ); ?>" alt="Commercial Cleaning" />
+					<?php endif; ?>
 				</div>
 				<div class="jk-hero-image">
-					<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-homepage-franchise.webp' ); ?>" alt="Franchise Opportunities" />
+					<?php if ( $img_hero_franchise ) : ?>
+						<img src="<?php echo esc_url( $img_hero_franchise ); ?>" alt="Franchise Opportunities" />
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -83,7 +107,9 @@ $theme_uri = get_template_directory_uri();
 			<div class="jk-services-grid">
 				<article class="jk-service-card">
 					<div class="jk-service-card-image">
-						<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-cleaning-services.webp' ); ?>" alt="Commercial Cleaning Services" />
+						<?php if ( $img_service_cleaning ) : ?>
+							<img src="<?php echo esc_url( $img_service_cleaning ); ?>" alt="Commercial Cleaning Services" />
+						<?php endif; ?>
 					</div>
 					<div class="jk-service-card-body">
 						<h3 class="jk-service-card-title"><?php esc_html_e( 'Commercial cleaning services', 'proclean' ); ?></h3>
@@ -98,7 +124,9 @@ $theme_uri = get_template_directory_uri();
 				</article>
 				<article class="jk-service-card">
 					<div class="jk-service-card-image">
-						<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-franchise-opportunities.webp' ); ?>" alt="Franchise Opportunities" />
+						<?php if ( $img_service_franchise ) : ?>
+							<img src="<?php echo esc_url( $img_service_franchise ); ?>" alt="Franchise Opportunities" />
+						<?php endif; ?>
 					</div>
 					<div class="jk-service-card-body">
 						<h3 class="jk-service-card-title"><?php esc_html_e( 'Franchise opportunities', 'proclean' ); ?></h3>
@@ -147,7 +175,11 @@ $theme_uri = get_template_directory_uri();
 					<div class="jk-faq-item<?php echo esc_attr( $open ); ?>">
 						<div class="jk-faq-question" onclick="this.parentElement.classList.toggle('open')">
 							<?php echo esc_html( $faq['q'] ); ?>
-							<span class="jk-check">&#10003;</span>
+							<?php if ( $img_icon_orange ) : ?>
+								<img src="<?php echo esc_url( $img_icon_orange ); ?>" alt="Check" class="jk-check-img" />
+							<?php else : ?>
+								<span class="jk-check">&#10003;</span>
+							<?php endif; ?>
 						</div>
 						<div class="jk-faq-answer"><?php echo esc_html( $faq['a'] ); ?></div>
 					</div>
@@ -166,27 +198,29 @@ $theme_uri = get_template_directory_uri();
 				<?php
 				$why_items = array(
 					array(
-						'icon'  => 'icon-SpillCleanup',
-						'title' => __( 'Spill Cleanup', 'proclean' ),
+						'img'  => $img_spill_cleanup,
+						'title'=> __( 'Spill Cleanup', 'proclean' ),
 					),
 					array(
-						'icon'  => 'icon-Disinfecting',
-						'title' => __( 'Disinfecting', 'proclean' ),
+						'img'  => $img_disinfecting,
+						'title'=> __( 'Disinfecting', 'proclean' ),
 					),
 					array(
-						'icon'  => 'icon-EPProducts',
-						'title' => __( 'EP Products', 'proclean' ),
+						'img'  => $img_ep_products,
+						'title'=> __( 'EP Products', 'proclean' ),
 					),
 					array(
-						'icon'  => 'icon-Extraction',
-						'title' => __( 'Extraction', 'proclean' ),
+						'img'  => $img_extraction,
+						'title'=> __( 'Extraction', 'proclean' ),
 					),
 				);
 				foreach ( $why_items as $item ) :
 					?>
 					<div class="jk-why-item">
 						<div class="jk-why-icon">
-							<img src="<?php echo esc_url( $theme_uri . '/assets/images/' . $item['icon'] . '.webp' ); ?>" alt="<?php echo esc_attr( $item['title'] ); ?>" />
+							<?php if ( $item['img'] ) : ?>
+								<img src="<?php echo esc_url( $item['img'] ); ?>" alt="<?php echo esc_attr( $item['title'] ); ?>" />
+							<?php endif; ?>
 						</div>
 						<h4 class="jk-why-title"><?php echo esc_html( $item['title'] ); ?></h4>
 					</div>
@@ -204,7 +238,9 @@ $theme_uri = get_template_directory_uri();
 	<section class="jk-retention">
 		<div class="jk-container">
 			<div class="jk-retention-image">
-				<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-CustomerRetention2.png' ); ?>" alt="Customer Retention" />
+				<?php if ( $img_retention ) : ?>
+					<img src="<?php echo esc_url( $img_retention ); ?>" alt="Customer Retention" />
+				<?php endif; ?>
 			</div>
 			<div class="jk-retention-content">
 				<span class="jk-retention-number">9</span>
@@ -228,15 +264,13 @@ $theme_uri = get_template_directory_uri();
 			</div>
 			<div class="jk-blog-grid">
 				<?php
-				$blog_banners = array(
-					'Banner-Templet-15.png',
-					'Banner-Templet-51.png',
-					'Banner-Templet-52.png',
-				);
-				foreach ( $blog_banners as $banner ) :
+				$blog_images = array( $img_blog_15, $img_blog_51, $img_blog_52 );
+				foreach ( $blog_images as $blog_img ) :
 					?>
 					<div class="jk-blog-item">
-						<img src="<?php echo esc_url( $theme_uri . '/assets/images/' . $banner ); ?>" alt="Blog Post" />
+						<?php if ( $blog_img ) : ?>
+							<img src="<?php echo esc_url( $blog_img ); ?>" alt="Blog Post" />
+						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>
 			</div>
