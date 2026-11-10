@@ -32,7 +32,7 @@ class ProClean_Theme {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	const VERSION = '1.0.1';
+	const VERSION = '1.0.2';
 
 	/**
 	 * Text domain.
@@ -320,11 +320,12 @@ class ProClean_Theme {
 		);
 
 		// Inline header styles to match Jani-King reference
-		$css .= ".jk-header { background: #f8f8f8 !important; }
-		.jk-header-button { background-color: #1a3354 !important; border-color: #1a3354 !important; }
-		.jk-header-button:hover { background-color: #fde953 !important; border-color: #fde953 !important; color: #1a3354 !important; }
-		.jk-primary-menu > li > a { color: #1a3354 !important; }
-		.jk-primary-menu > li > a:hover { color: #EE5513 !important; }";
+		$css .= ".jk-header { background: #ffffff !important; border-bottom: 1px solid #dddddd; }
+		.jk-header-button { background-color: #006699 !important; border-color: #006699 !important; }
+		.jk-header-button:hover { background-color: #fde953 !important; border-color: #fde953 !important; color: #32373c !important; }
+		.jk-primary-menu > li > a { color: #333333 !important; }
+		.jk-primary-menu > li > a:hover { color: #EE5513 !important; }
+		.jk-header-button { background-color: #006699 !important; border-color: #006699 !important; color: #ffffff !important; }";
 
 		echo "<style>{$css}</style>";
 	}
