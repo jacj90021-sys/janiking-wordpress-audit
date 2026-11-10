@@ -214,10 +214,14 @@ Mega-menu parents use the `mega-menu` CSS class for multi-column dropdown layout
 |------|-------|--------|-------|
 | 2026-11-10 | PHP lint (11 files) | Passed | 0 failures |
 | 2026-11-10 | phpcs WordPress standard | Passed | 0 errors, 0 warnings |
-| 2026-11-10 | Live page load (12 URLs) | Passed | All HTTP 200 / 404 as expected |
-| 2026-11-10 | Content rendering check | Passed | Hero, headings, form markup present |
+| 2026-11-10 | Live page load via localhost (23 URLs) | Passed | All HTTP 200 / 404 as expected |
+| 2026-11-10 | Live page load via public tunnel (23 URLs) | Passed | All HTTP 200 / 404 via loud-roses-stand.loca.lt |
+| 2026-11-10 | Homepage CSS/asset load over HTTPS | Passed | proclean.css HTTP 200, all assets https:// |
+| 2026-11-10 | Mixed content check | Passed | 0 asset http:// references on https page |
+| 2026-11-10 | Content rendering check | Passed | Hero, headings, FAQ, form markup present |
 | 2026-11-10 | PHP error log review | Passed | No errors |
 | 2026-11-10 | Required theme files present | Passed | 9/9 |
 | 2026-11-10 | Template parts present | Passed | 5/5 |
 | 2026-11-10 | Menu configuration | Passed | Primary + footer menus active |
 | 2026-11-10 | CF7 form rendering | Passed | Shortcode renders on quote page |
+| 2026-11-10 | HTTPS detection (wp-config) | Passed | X-Forwarded-Proto handled; assets generate https:// |

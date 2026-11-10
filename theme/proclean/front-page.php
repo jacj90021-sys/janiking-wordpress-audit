@@ -2,8 +2,9 @@
 /**
  * Front Page template.
  *
- * Displays the homepage: hero section, statistics, services overview,
- * call-to-action and client logos.
+ * Faithful reconstruction of the Jani-King homepage:
+ * hero (Commercial cleaning / Franchise opportunities), stat counters,
+ * services, FAQ, client logos, CTA, why-Jani-King checkmarks.
  *
  * @package   ProClean
  * @since     1.0.0
@@ -25,13 +26,13 @@ get_header();
 						<?php esc_html_e( 'Commercial Cleaning You Can Trust', 'proclean' ); ?>
 					</h1>
 					<p class="proclean-hero-subtitle">
-						<?php esc_html_e( 'Professional janitorial, office and facility cleaning services for businesses of every size.', 'proclean' ); ?>
+						<?php esc_html_e( 'A dependable and well-established franchise brand with over 56 years of trust.', 'proclean' ); ?>
 					</p>
 					<div class="proclean-hero-actions">
-						<a class="proclean-button proclean-button--primary" href="<?php echo esc_url( get_permalink( 13 ) ); ?>">
-							<?php esc_html_e( 'Get a Free Quote', 'proclean' ); ?>
+						<a class="proclean-button proclean-button--primary button cleaning-service" href="<?php echo esc_url( get_permalink( 8 ) ); ?>">
+							<?php esc_html_e( 'Learn More About Our Cleaning Services', 'proclean' ); ?>
 						</a>
-						<a class="proclean-button" href="<?php echo esc_url( get_permalink( 10 ) ); ?>">
+						<a class="proclean-button button franchise-opportunities" href="<?php echo esc_url( get_permalink( 10 ) ); ?>">
 							<?php esc_html_e( 'Franchise Opportunities', 'proclean' ); ?>
 						</a>
 					</div>
@@ -53,19 +54,19 @@ get_header();
 		<div class="proclean-container">
 			<div class="proclean-stats-grid">
 				<div class="proclean-stat">
-					<span class="proclean-stat-number">120+</span>
+					<span class="proclean-stat-number proclean-animate-pulse">120+</span>
 					<p class="proclean-stat-label"><?php esc_html_e( 'Support Offices', 'proclean' ); ?></p>
 				</div>
 				<div class="proclean-stat">
-					<span class="proclean-stat-number">10</span>
-					<p class="proclean-stat-label"><?php esc_html_e( 'Countries', 'proclean' ); ?></p>
+					<span class="proclean-stat-number proclean-animate-pulse">10</span>
+					<p class="proclean-stat-label"><?php esc_html_e( 'Countries Internationally', 'proclean' ); ?></p>
 				</div>
 				<div class="proclean-stat">
-					<span class="proclean-stat-number">6,900+</span>
+					<span class="proclean-stat-number proclean-animate-pulse">6,900+</span>
 					<p class="proclean-stat-label"><?php esc_html_e( 'Unit Franchises', 'proclean' ); ?></p>
 				</div>
 				<div class="proclean-stat">
-					<span class="proclean-stat-number">9 yrs</span>
+					<span class="proclean-stat-number proclean-animate-pulse">9 yrs</span>
 					<p class="proclean-stat-label"><?php esc_html_e( 'Avg. Customer Retention', 'proclean' ); ?></p>
 				</div>
 			</div>
@@ -75,9 +76,9 @@ get_header();
 	<section class="proclean-services">
 		<div class="proclean-container">
 			<header class="proclean-section-header">
-				<h2 class="proclean-section-title"><?php esc_html_e( 'Our Cleaning Services', 'proclean' ); ?></h2>
+				<h2 class="proclean-section-title"><?php esc_html_e( 'Commercial Cleaning Services', 'proclean' ); ?></h2>
 				<p class="proclean-section-description">
-					<?php esc_html_e( 'From routine janitorial to specialized deep cleaning, we deliver consistent results.', 'proclean' ); ?>
+					<?php esc_html_e( 'Thousands of world-recognized brands, businesses and facilities in several major industries globally, have entrusted Jani‑King with their commercial cleaning needs.', 'proclean' ); ?>
 				</p>
 			</header>
 			<div class="proclean-services-grid">
@@ -85,7 +86,7 @@ get_header();
 				$services = array(
 					array(
 						'title' => __( 'Janitorial Services', 'proclean' ),
-						'text'  => __( 'Daily cleaning, restroom care, and routine maintenance for offices and facilities.', 'proclean' ),
+						'text'  => __( 'Daily carpet care, lobby and reception cleaning, dusting, office gear, trash removal, kitchen and breakroom, hard surface floors.', 'proclean' ),
 						'link'  => get_permalink( 8 ),
 					),
 					array(
@@ -100,7 +101,7 @@ get_header();
 					),
 					array(
 						'title' => __( 'Specialty Cleaning', 'proclean' ),
-						'text'  => __( 'Carpet, hard-surface, post-construction, and window cleaning services.', 'proclean' ),
+						'text'  => __( 'Carpet, hard-surface, post-construction, tile and grout, window cleaning services.', 'proclean' ),
 						'link'  => get_permalink( 8 ),
 					),
 				);
@@ -121,6 +122,46 @@ get_header();
 		</div>
 	</section>
 
+	<section class="proclean-faq">
+		<div class="proclean-container">
+			<header class="proclean-section-header">
+				<h2 class="proclean-section-title"><?php esc_html_e( 'Frequently Asked Questions', 'proclean' ); ?></h2>
+			</header>
+			<div class="proclean-faq-list">
+				<?php
+				$faqs = array(
+					array(
+						'q' => __( 'What services does Jani‑King offer?', 'proclean' ),
+						'a' => __( 'Jani‑King offers commercial cleaning, janitorial services, disinfecting, green cleaning and specialty cleaning for offices and facilities of every size.', 'proclean' ),
+					),
+					array(
+						'q' => __( 'How do I get a free cleaning quote?', 'proclean' ),
+						'a' => __( 'Fill out the quote request form or contact your local Jani‑King office to schedule a free consultation.', 'proclean' ),
+					),
+					array(
+						'q' => __( 'What industries do you serve?', 'proclean' ),
+						'a' => __( 'Healthcare, education, office buildings, hospitality, retail, manufacturing, government, fitness, restaurants, casinos, places of worship and more.', 'proclean' ),
+					),
+					array(
+						'q' => __( 'How can I become a Jani‑King franchisee?', 'proclean' ),
+						'a' => __( 'Visit the Franchise Opportunities page to learn about unit franchises, domestic and international franchising options.', 'proclean' ),
+					),
+				);
+				foreach ( $faqs as $index => $faq ) :
+					$open = ( 0 === $index ) ? ' open' : '';
+					?>
+					<div class="proclean-faq-item<?php echo esc_attr( $open ); ?>">
+						<div class="proclean-faq-question" onclick="this.parentElement.classList.toggle('open')">
+							<?php echo esc_html( $faq['q'] ); ?>
+							<span class="proclean-check">&#10003;</span>
+						</div>
+						<div class="proclean-faq-answer"><?php echo esc_html( $faq['a'] ); ?></div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+
 	<section class="proclean-cta">
 		<div class="proclean-container">
 			<div class="proclean-cta-inner">
@@ -136,14 +177,24 @@ get_header();
 	<section class="proclean-clients">
 		<div class="proclean-container">
 			<header class="proclean-section-header">
-				<h2 class="proclean-section-title"><?php esc_html_e( 'Trusted by Businesses Everywhere', 'proclean' ); ?></h2>
+				<h2 class="proclean-section-title"><?php esc_html_e( 'Our Proud Partnerships &amp; Clients', 'proclean' ); ?></h2>
 			</header>
 			<div class="proclean-client-logos">
-				<?php for ( $i = 1; $i <= 6; $i++ ) : ?>
+				<?php
+				$clients = array(
+					__( 'AT&amp;T Stadium', 'proclean' ),
+					__( 'Bridgestone Arena', 'proclean' ),
+					__( 'Cains', 'proclean' ),
+					__( 'Camping World Stadium', 'proclean' ),
+					__( 'Carolina Panthers', 'proclean' ),
+					__( 'Chaifetz Arena', 'proclean' ),
+				);
+				foreach ( $clients as $client ) :
+					?>
 					<div class="proclean-client-logo">
-						<span class="proclean-client-logo-placeholder"><?php echo esc_html( $i ); ?></span>
+						<?php echo esc_html( $client ); ?>
 					</div>
-				<?php endfor; ?>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>

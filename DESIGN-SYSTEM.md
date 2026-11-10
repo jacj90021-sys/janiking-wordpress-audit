@@ -17,32 +17,40 @@ Values marked **(obs.)** were observed directly on the rendered pages.
 
 | Color | Use | Value | Source |
 |-------|-----|-------|--------|
-| Brand Orange | Primary accent, CTAs, checkmarks, icons | `#FF5A1F` **(est.)** | `icon-CircleCheck-Orange.webp`, `btn-*` buttons |
-| Dark / Near-Black | Logo wordmark "Jani-", headings, text | `#1A1A1F` **(est.)** | logo image, body text |
-| White | Backgrounds, logo "KING", button text | `#FFFFFF` | logo image, buttons |
-| Dark Teal | Secondary check marks ("CircleCheck-DarkTeal") | `#1F6E7E` **(est.)** | `icon-CircleCheck-DarkTeal.webp` |
-| Light Gray | Section backgrounds, card fills | `#F5F6F7` **(est.)** | page backgrounds |
-| Mid Gray | Body copy | `#4A4A4A` **(est.)** | body copy |
+| Brand Orange | Primary accent, CTAs, checkmarks, icons | `#EE5513` **(measured)** | `icon-CircleCheck-Orange.webp` (PIL sampled) |
+| Black | Logo wordmark, headings, body text | `#000000` **(measured)** | `JK-Logo-REV.png` (PIL sampled) |
+| White | Backgrounds, button text | `#FFFFFF` **(measured)** | logo image, buttons |
+| Dark Green | Secondary accent | `#48704B` **(measured)** | `icon-CircleCheck-Orange.webp` (PIL sampled) |
+| Light Gray | Section backgrounds | `#F7F7F7` **(est.)** | page backgrounds |
+| Mid Gray | Body copy | `#555555` **(est.)** | body copy |
 
-**Note:** No color swatch file exists in GitHub; these are observed from rendered
-pages and single-color icons. Confirm exact hex via browser DevTools before
-implementation.
+Brand colors measured directly from reference assets via PIL sampling.
 
 ## Typography
 
 | Element | Font | Weight | Size | Line Height | Source |
 |---------|------|--------|------|-------------|--------|
-| Body | Sans-serif (est. Inter / system-ui) | 400 | 16px | 1.6 **(est.)** | body copy |
-| H1 | Sans-serif | 700 | 48px **(est.)** | 1.2 **(est.)** | page headings |
-| H2 | Sans-serif | 700 | 36px **(est.)** | 1.2 **(est.)** | section headings |
-| H3 | Sans-serif | 700 | 28px **(est.)** | 1.2 **(est.)** | sub-headings |
-| H4 | Sans-serif | 600 | 22px **(est.)** | 1.3 **(est.)** | minor headings |
-| CTA button | Sans-serif | 600–700 | 14–16px **(est.)** | — | "GET A QUOTE", "GET STARTED", "LEARN MORE" |
+| Body | Sans-serif (TypeKit stack) | 400 | 1rem | 1.6 | body copy |
+| H1 | Sans-serif | 700 | 2.5rem | 1.15 | page headings |
+| H2 | Sans-serif | 700 | 2rem | 1.2 | section headings |
+| H3 | Sans-serif | 700 | 1.5rem | 1.2 | sub-headings |
+| H4 | Sans-serif | 600 | 1.25rem | 1.2 | minor headings |
+| CTA button | Sans-serif | 700 | 1rem | 1 | "Get a Free Quote", "Learn More" |
 
-- Font stack not directly measurable from rendered output; Astra default is
-  typically a system-ui/Inter stack. Use a free Google Font (e.g. Inter or Poppins)
-  or system fonts to keep dependency-free.
-- All typography values marked **(est.)** — verify with DevTools.
+Fonts are served via Adobe Fonts / TypeKit
+(`https://use.typekit.net/lba6xrs.css`) on the reference site. A clean sans-serif
+stack (Proxima Nova–like) is used to keep the theme dependency-free while
+matching the visual direction.
+
+## Animations & Motion
+
+- Entrance animation: `elementor-animation-pulse-grow` (scale pulse, 2s infinite)
+  observed on reference homepage stats; reproduced via
+  `@keyframes proclean-pulse-grow`.
+- Mobile menu: slideToggle, hamburger toggle.
+- FAQ accordion: max-height toggle, 0.3s ease.
+- Sticky header: position sticky on scroll.
+- Mega-menu: hover-reveal dropdown with multi-column layout.
 
 ## Heading Scale
 

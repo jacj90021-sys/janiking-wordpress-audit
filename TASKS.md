@@ -1,10 +1,10 @@
 # TASKS.md — Implementation Stages and Progress
 
-Status: **Phase 4 — Website construction complete (core pages).**
+Status: **Phase 4 — Website reconstruction implemented on live WordPress.**
 
-Live WordPress environment operational at http://proclean.local (WP 7.1.4).
-Theme, Elementor, ProClean Core and Contact Form 7 active. Core pages built
-and verified.
+Live environment: WordPress 7.1.4 at http://proclean.local, exposed publicly via
+https://loud-roses-stand.loca.lt (single preview URL). All created pages return
+HTTP 200 through the tunnel with full CSS/JS loading (no mixed content).
 
 ## Phases
 
@@ -49,15 +49,16 @@ and verified.
 - [x] Build footer (multi-column, socials, copyright, address)
 - [x] Build homepage sections (hero, stats, services, FAQ, client logos, video)
 - [x] Build reusable page templates (service, industry, franchise, location)
-- [ ] Build service layouts (overview + detail) — detail layouts deferred to Phase 5
-- [ ] Build industry layouts (overview + detail) — detail layouts deferred to Phase 5
-- [x] Build franchise layouts (overview)
-- [x] Build location layouts (template-based city page)
+- [x] Build service layouts (overview + detail) — page-service.php template + 14 service pages created
+- [x] Build industry layouts (overview + detail) — page-industry.php template + 17 industry pages created
+- [x] Build franchise layouts (overview) — page-franchise.php template + 5 franchise subpages created
+- [x] Build location layouts (template-based city page) — page-location.php template + 9 city pages created
 - [x] Build blog and content layouts (archive, single, search)
 - [x] Implement page inventory (documentation/SITEMAP.md)
 - [x] Reproduce reference interactions (mega menu, FAQ accordion structure, quote form)
 - [x] Live WordPress environment: WP 7.1.4, theme + Elementor + ProClean Core + Contact Form 7 active
 - [x] Contact form (CF7 Quote Request Form) embedded on Get a Quote & Contact Us pages
+- [x] Public preview tunnel (loca.lt) serving full CSS/JS over HTTPS; mixed content fixed via wp-config HTTPS detection
 
 ### Phase 5 — Product functionality
 
@@ -108,7 +109,7 @@ and verified.
 | Date | Phase | Note |
 |------|-------|------|
 | 2026-11-10 | 3 | WordPress foundation complete: theme + plugin skeleton, template hierarchy, Customizer, assets, linting/phpcs clean |
-| 2026-11-10 | 4 | Live WordPress environment (WP 7.1.4) at http://proclean.local; theme, Elementor, ProClean Core, Contact Form 7 active; core pages built and HTTP-verified; PHP lint + phpcs clean |
+| 2026-11-10 | 4 | Live WordPress environment (WP 7.1.4) at http://proclean.local; public tunnel https://loud-roses-stand.loca.lt; ~26 pages created & HTTP-verified; PHP lint + phpcs clean; mixed content fixed |
 
 ## Repository (GitHub)
 

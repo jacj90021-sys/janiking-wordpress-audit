@@ -49,6 +49,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Contact Form 7 plugin installed & active; "Quote Request Form" (ID 39)
   embedded on Get a Quote & Contact Us pages
 - Plugins active: elementor, contact-form-7, proclean-core
+- Page templates added: page-service.php, page-industry.php,
+  page-franchise.php, page-location.php
+- Service pages created (14): janitorial-services, disinfecting,
+  green-cleaning, specialty-cleaning-services + 10 specialty sub-services
+- Industry pages created (17): healthcare, education, office-buildings,
+  cleaning-resources + 12 others
+- Franchise subpages created (5): unit-franchise, domestic-franchisor,
+  international-franchisor, how-to-start-a-cleaning-business, veterans
+- Location pages created (9): atlanta, chicago, dallas, houston,
+  los-angeles, new-york, phoenix, cleveland, miami
+- Public preview tunnel https://loud-roses-stand.loca.lt serving full styling
+  over HTTPS; mixed content fixed via wp-config HTTPS detection
 - documentation/QA-REPORT.md — real test evidence from live WordPress
   installation (page load tests, content rendering, PHP lint, phpcs)
 
