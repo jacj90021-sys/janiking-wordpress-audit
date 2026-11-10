@@ -7,13 +7,14 @@
 
 /*! Design tokens (measured from live reference) */
 :root {
-	/* Brand colors */
-	--jk-color-base: #2c3e50;
+	/* Brand colors - measured from Jani-King reference CSS */
+	--jk-color-base: #1a3354;
 	--jk-color-secondary: #efefef;
+	--jk-color-secondary-btn: #fde953;
 	--jk-color-accent: #EE5513;
 	--jk-color-black: #000000;
 	--jk-color-white: #ffffff;
-	--jk-color-text: #2c3e50;
+	--jk-color-text: #1a3354;
 	--jk-color-text-muted: #555555;
 
 	/* Typography */
@@ -176,7 +177,8 @@ button, select {
 
 /* ===== Header ===== */
 .jk-header {
-	background: transparent;
+	background: #f8f8f8 !important;
+	border-bottom: 1px solid #dddddd;
 	position: sticky;
 	top: 0;
 	z-index: 100;
@@ -186,8 +188,8 @@ button, select {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-top: var(--jk-space-sm);
-	padding-bottom: var(--jk-space-sm);
+	padding-top: var(--jk-space-xs);
+	padding-bottom: var(--jk-space-xs);
 }
 
 .jk-site-branding {
@@ -211,6 +213,7 @@ button, select {
 .jk-main-navigation {
 	display: flex;
 	align-items: center;
+	flex: 1;
 }
 
 .jk-primary-menu {
@@ -218,6 +221,8 @@ button, select {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	justify-content: center;
+	width: 100%;
 }
 
 .jk-primary-menu > li {
@@ -232,10 +237,10 @@ button, select {
 .jk-primary-menu > li > a {
 	display: block;
 	padding: var(--jk-space-xs) var(--jk-space-sm);
-	color: var(--jk-color-black);
+	color: var(--jk-color-text);
 	text-decoration: none;
 	font-weight: var(--jk-font-weight-semibold);
-	font-size: 1rem;
+	font-size: 0.9375rem;
 }
 
 .jk-primary-menu > li > a:hover,
@@ -339,9 +344,9 @@ button, select {
 }
 
 .jk-header-button:hover {
-	background-color: var(--jk-color-secondary);
-	color: var(--jk-color-base);
-	border-color: var(--jk-color-secondary);
+	background-color: var(--jk-color-secondary-btn);
+	color: var(--jk-color-black);
+	border-color: var(--jk-color-secondary-btn);
 }
 
 /* ===== Footer ===== */
@@ -399,8 +404,8 @@ input[type="reset"] {
 	font-weight: var(--jk-font-weight-bold);
 	line-height: 1;
 	color: var(--jk-color-white);
-	background-color: var(--jk-color-accent);
-	border: 1px solid var(--jk-color-accent);
+	background-color: var(--jk-color-base);
+	border: 1px solid var(--jk-color-base);
 	border-radius: var(--jk-border-radius);
 	text-decoration: none;
 	text-align: center;
@@ -457,7 +462,7 @@ input[type="reset"]:hover {
 .jk-form input:focus,
 .jk-form select:focus,
 .jk-form textarea:focus {
-	border-color: var(--jk-color-accent);
+	border-color: var(--jk-color-base);
 	outline: 0;
 	box-shadow: 0 0 0 3px rgba(238, 85, 19, 0.2);
 }
@@ -500,7 +505,7 @@ input[type="reset"]:hover {
 .jk-navigation a:hover,
 .navigation a:hover,
 .posts-pagination a:hover {
-	border-color: var(--jk-color-accent);
+	border-color: var(--jk-color-base);
 	color: var(--jk-color-accent);
 }
 
@@ -641,7 +646,7 @@ input[type="reset"]:hover {
 .jk-service-card:hover {
 	transform: translateY(-2px);
 	box-shadow: var(--jk-shadow);
-	border-color: var(--jk-color-accent);
+	border-color: var(--jk-color-base);
 }
 
 .jk-service-card-image {

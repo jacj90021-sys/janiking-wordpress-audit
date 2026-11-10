@@ -32,7 +32,7 @@ class ProClean_Theme {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.1';
 
 	/**
 	 * Text domain.
@@ -67,6 +67,7 @@ class ProClean_Theme {
 		add_action( 'after_setup_theme', array( $this, 'setup' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'assets' ) );
 		add_action( 'customize_register', array( $this, 'customizer_register' ) );
+		add_action( 'wp_head', array( $this, 'output_custom_css' ) );
 	}
 
 	/**
@@ -318,7 +319,14 @@ class ProClean_Theme {
 			$width
 		);
 
-		wp_add_inline_style( self::PREFIX . 'style', $css );
+		// Inline header styles to match Jani-King reference
+		$css .= ".jk-header { background: #f8f8f8 !important; }
+		.jk-header-button { background-color: #1a3354 !important; border-color: #1a3354 !important; }
+		.jk-header-button:hover { background-color: #fde953 !important; border-color: #fde953 !important; color: #1a3354 !important; }
+		.jk-primary-menu > li > a { color: #1a3354 !important; }
+		.jk-primary-menu > li > a:hover { color: #EE5513 !important; }";
+
+		echo "<style>{$css}</style>";
 	}
 
 	/**
