@@ -1,34 +1,50 @@
-# PROJECT.md — Jani-King Website Recreation + ThemeForest Product
+# PROJECT.md — Commercial Cleaning WordPress Theme
 
 ## Project Identity
 
-**Working name:** Jani-King (reference) / product name TBD for ThemeForest.
+**Product name:** ProClean (working name)
+**Theme slug:** proclean
+**Prefix:** proclean_
+**Text domain:** proclean
 **Category:** Commercial cleaning, janitorial services, office/facility cleaning,
 industrial/institutional cleaning, professional cleaning contractors, facility
 maintenance.
 
+## Reference
+
+**Primary reference website:** https://www.janiking.com/ (Jani-King)
+
+Jani-King is a **structural, content and functional reference only** — not our
+commercial product branding, and not a design to be copied verbatim.
+
 ## Objectives
 
-### OBJECTIVE A — WEBSITE RECREATION
+### OBJECTIVE A — WEBSITE RECREATION (reference-guided)
 
-Recreate the Jani-King reference website's page structure, navigation, visual
-presentation, content organization, reusable sections and responsive behaviour
-using WordPress. Primary reference: https://www.janiking.com/
+Reconstruct the useful website experience of the Jani-King reference using
+WordPress: page structure, navigation, content organization, reusable sections,
+responsive behaviour and conversion journeys.
 
-Reproduce: overall visual identity, page hierarchy, section order, layout
-proportions, typography hierarchy, color relationships, spacing, container
-widths, image proportions, card designs, buttons, navigation behaviour, footer
-organization, responsive layouts.
+Preserve useful content structures, navigation, business functionality and
+conversion journeys. Evaluate each reference element professionally before
+implementation — improve weak elements, remove outdated/confusing sections, and
+do not blindly copy every link, visual decision or interaction.
 
 ### OBJECTIVE B — COMMERCIAL WORDPRESS PRODUCT
 
 Build the underlying implementation as a professional, original WordPress theme
 suitable for commercial sale on ThemeForest.
 
+The finished product must have its **own original visual identity and design
+system**. Jani-King is the reference, not our branding. Do not reproduce
+Jani-King's exact visual identity; establish an original, professional design
+system (colors, typography, spacing, buttons, cards, navigation, responsive
+breakpoints) evaluated against the reference.
+
 The final result must be a complete, maintainable WordPress product with:
 professional architecture, customization, documentation, demo importing,
-compatibility and testing. It must have its own original product identity — it
-must not become a basic website or a collection of Elementor pages.
+compatibility and testing. It must not become a basic website or a collection of
+Elementor pages.
 
 ## Stack
 
@@ -49,12 +65,10 @@ replacements are prohibited. No build step unless justified.
 
 ## Current Status
 
-**Phase 2 — Architecture proposal in progress.**
+**Phase 3 — WordPress foundation in progress.**
 
-No implementation has begun. This document, together with TASKS.md,
-DESIGN-SYSTEM.md, documentation/SITEMAP.md, documentation/ARCHITECTURE.md and
-the new FEATURES.md / QA-REPORT.md / CHANGELOG.md / THEMEFOREST-COMPLIANCE.md,
-constitutes the project plan.
+Foundation files committed: standalone theme skeleton, companion plugin skeleton,
+template hierarchy, Customizer framework, asset loading, design-system defaults.
 
 ## Constraints
 
@@ -85,7 +99,8 @@ constitutes the project plan.
 
 ## Reference
 
-https://www.janiking.com/
+https://www.janiking.com/ — structural, content and functional reference only.
+Not our product branding; not a verbatim visual reproduction.
 
 ## Competitor benchmarks
 

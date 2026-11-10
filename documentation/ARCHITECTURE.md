@@ -260,5 +260,5 @@ See TASKS.md for Phase 1 (inspection) → Phase 8 (release preparation).
 
 ## Approval
 
-Phase 2 architecture proposal complete. Awaiting approval before Phase 3
-(WordPress foundation / implementation).
+Phase 2 architecture approved. Phase 3 (WordPress foundation) implementation in
+progress.

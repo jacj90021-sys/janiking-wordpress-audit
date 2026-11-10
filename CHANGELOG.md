@@ -17,10 +17,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - documentation/FEATURES.md — product feature list
 - documentation/THEMEFOREST-COMPLIANCE.md — Envato requirements checklist
 - documentation/QA-REPORT.md — test evidence placeholder
+- AGENTS.md — lint/typecheck commands
+- README.md — installation and usage
 
 ### Changed
 
-- PROJECT.md updated from audit-only scope to dual-objective commercial product scope
+- PROJECT.md updated from audit-only scope to dual-objective commercial product scope; Jani-King framed as structural/content/functional reference only
 - TASKS.md updated from audit stages to 8-phase implementation plan
 - documentation/ARCHITECTURE.md superseded Astra+Elementor-only architecture with standalone theme + companion plugin architecture
 
@@ -28,9 +30,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Astra child theme + Elementor Free page-only architecture (replaced by commercial product architecture)
 
+### Added — Phase 3 (WordPress foundation)
+
+- theme/proclean/style.css — theme header + design tokens
+- theme/proclean/functions.php — theme bootstrap
+- theme/proclean/inc/class-proclean-theme.php — theme setup, assets, Customizer, template parts
+- theme/proclean/index.php, page.php, single.php, archive.php, search.php, 404.php — template hierarchy
+- theme/proclean/template-parts/{header,footer,content,content-none,page-header}.php — reusable template parts
+- theme/proclean/assets/css/proclean.css — design system & base styles
+- theme/proclean/assets/css/editor-style.css — block editor styles
+- theme/proclean/assets/js/proclean.js — mobile menu enhancement
+- plugin/proclean-core/proclean-core.php — companion plugin bootstrap
+- plugin/proclean-core/includes/class-proclean-core-post-types.php — post types skeleton
+
 ### Removed
 
-- None
+- documentation/test.md (placeholder)
+
 
 ### Fixed
 

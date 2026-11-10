@@ -1,0 +1,36 @@
+/*
+ * ProClean — Editor Styles
+ * Matches frontend typography in the block editor.
+ */
+
+body {
+	font-family: var(--proclean-font-family);
+	font-size: var(--proclean-font-size-base);
+	line-height: var(--proclean-line-height-base);
+	color: var(--proclean-color-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: var(--proclean-font-weight-bold);
+	line-height: var(--proclean-heading-line-height);
+	color: var(--proclean-color-text);
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+h1 { font-size: var(--proclean-h1-size); }
+h2 { font-size: var(--proclean-h2-size); }
+h3 { font-size: var(--proclean-h3-size); }
+h4 { font-size: var(--proclean-h4-size); }
+
+a {
+	color: var(--proclean-color-brand-secondary);
+	text-decoration: underline;
+}
+
+.wp-block-group__inner-container,
+.wp-block-cover__inner-container {
+	max-width: var(--proclean-container-max-width);
+	margin-left: auto;
+	margin-right: auto;
+}
