@@ -30,18 +30,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Astra child theme + Elementor Free page-only architecture (replaced by commercial product architecture)
 
-### Added — Phase 3 (WordPress foundation)
+### Added — Phase 4 (Website construction on live WordPress)
 
-- theme/proclean/style.css — theme header + design tokens
-- theme/proclean/functions.php — theme bootstrap
-- theme/proclean/inc/class-proclean-theme.php — theme setup, assets, Customizer, template parts
-- theme/proclean/index.php, page.php, single.php, archive.php, search.php, 404.php — template hierarchy
-- theme/proclean/template-parts/{header,footer,content,content-none,page-header}.php — reusable template parts
-- theme/proclean/assets/css/proclean.css — design system & base styles
-- theme/proclean/assets/css/editor-style.css — block editor styles
-- theme/proclean/assets/js/proclean.js — mobile menu enhancement
-- plugin/proclean-core/proclean-core.php — companion plugin bootstrap
-- plugin/proclean-core/includes/class-proclean-core-post-types.php — post types skeleton
+- Live WordPress environment at http://proclean.local (WP 7.1.4, MariaDB,
+  Apache, mod_rewrite)
+- theme/proclean/front-page.php — homepage template (hero, stats, services,
+  CTA, client logos)
+- Homepage styles in theme/proclean/assets/css/proclean.css (hero, stats,
+  services, CTA, clients sections + mega-menu dropdown styles)
+- Mega-menu navigation: Primary menu with Commercial Cleaning / Industries /
+  Franchise Opportunities parents (`mega-menu` class for multi-column dropdown)
+- Footer menu: Footer Navigation (Contact Us, Locations, Why ProClean, About
+  Us) assigned to footer location
+- Footer widgets: Search (footer-1), Recent Posts (footer-2), Contact text
+  (footer-3)
+- Content pages: About Us, Commercial Cleaning, Industries We Serve, Franchise
+  Opportunities, Locations, Contact Us, Why ProClean, Privacy Policy
+- Contact Form 7 plugin installed & active; "Quote Request Form" (ID 39)
+  embedded on Get a Quote & Contact Us pages
+- Plugins active: elementor, contact-form-7, proclean-core
+- documentation/QA-REPORT.md — real test evidence from live WordPress
+  installation (page load tests, content rendering, PHP lint, phpcs)
 
 ### Removed
 

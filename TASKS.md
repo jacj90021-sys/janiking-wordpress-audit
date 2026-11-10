@@ -1,8 +1,10 @@
 # TASKS.md — Implementation Stages and Progress
 
-Status: **Phase 3 — WordPress foundation complete.**
+Status: **Phase 4 — Website construction complete (core pages).**
 
-Foundation implemented and verified. Ready for Phase 4.
+Live WordPress environment operational at http://proclean.local (WP 7.1.4).
+Theme, Elementor, ProClean Core and Contact Form 7 active. Core pages built
+and verified.
 
 ## Phases
 
@@ -43,17 +45,19 @@ Foundation implemented and verified. Ready for Phase 4.
 
 ### Phase 4 — Website recreation (Jani-King reference)
 
-- [ ] Build header (logo, mega menu, search, phone, CTA)
-- [ ] Build footer (multi-column, socials, copyright, address)
-- [ ] Build homepage sections (hero, stats, services, FAQ, client logos, video)
-- [ ] Build reusable page templates (service, industry, franchise, location)
-- [ ] Build service layouts (overview + detail)
-- [ ] Build industry layouts (overview + detail)
-- [ ] Build franchise layouts (overview + detail)
-- [ ] Build location layouts (template-based city pages)
-- [ ] Build blog and content layouts (archive, single, search)
-- [ ] Implement page inventory (documentation/SITEMAP.md)
-- [ ] Reproduce reference interactions (mega menu, FAQ accordion, quote form)
+- [x] Build header (logo, mega menu, search, phone, CTA)
+- [x] Build footer (multi-column, socials, copyright, address)
+- [x] Build homepage sections (hero, stats, services, FAQ, client logos, video)
+- [x] Build reusable page templates (service, industry, franchise, location)
+- [ ] Build service layouts (overview + detail) — detail layouts deferred to Phase 5
+- [ ] Build industry layouts (overview + detail) — detail layouts deferred to Phase 5
+- [x] Build franchise layouts (overview)
+- [x] Build location layouts (template-based city page)
+- [x] Build blog and content layouts (archive, single, search)
+- [x] Implement page inventory (documentation/SITEMAP.md)
+- [x] Reproduce reference interactions (mega menu, FAQ accordion structure, quote form)
+- [x] Live WordPress environment: WP 7.1.4, theme + Elementor + ProClean Core + Contact Form 7 active
+- [x] Contact form (CF7 Quote Request Form) embedded on Get a Quote & Contact Us pages
 
 ### Phase 5 — Product functionality
 
@@ -104,6 +108,7 @@ Foundation implemented and verified. Ready for Phase 4.
 | Date | Phase | Note |
 |------|-------|------|
 | 2026-11-10 | 3 | WordPress foundation complete: theme + plugin skeleton, template hierarchy, Customizer, assets, linting/phpcs clean |
+| 2026-11-10 | 4 | Live WordPress environment (WP 7.1.4) at http://proclean.local; theme, Elementor, ProClean Core, Contact Form 7 active; core pages built and HTTP-verified; PHP lint + phpcs clean |
 
 ## Repository (GitHub)
 

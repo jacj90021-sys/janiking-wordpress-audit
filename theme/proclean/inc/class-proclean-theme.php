@@ -67,7 +67,6 @@ class ProClean_Theme {
 		add_action( 'after_setup_theme', array( $this, 'setup' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'assets' ) );
 		add_action( 'customize_register', array( $this, 'customizer_register' ) );
-		add_action( 'init', array( $this, 'template_parts' ) );
 	}
 
 	/**

@@ -207,6 +207,7 @@ button, select {
 .proclean-main-navigation {
 	display: flex;
 	align-items: center;
+	position: relative;
 }
 
 .proclean-primary-menu {
@@ -216,21 +217,122 @@ button, select {
 	padding: 0;
 }
 
-.proclean-primary-menu li {
-	margin-left: var(--proclean-space-md);
+.proclean-primary-menu > li {
+	margin: 0;
+	position: relative;
 }
 
-.proclean-primary-menu a {
+.proclean-primary-menu > li.menu-item-has-children > a {
+	padding-right: var(--proclean-space-sm);
+}
+
+.proclean-primary-menu > li > a {
 	display: block;
-	padding: var(--proclean-space-xs) 0;
+	padding: var(--proclean-space-xs) var(--proclean-space-sm);
 	color: var(--proclean-color-text);
 	text-decoration: none;
 	font-weight: var(--proclean-font-weight-medium);
 }
 
-.proclean-primary-menu a:hover,
-.proclean-primary-menu a.active {
+.proclean-primary-menu > li > a:hover,
+.proclean-primary-menu > li > a.active {
 	color: var(--proclean-color-brand-secondary);
+}
+
+/* Dropdown / mega menu */
+.proclean-primary-menu .sub-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 200;
+	display: none;
+	min-width: 220px;
+	background: var(--proclean-color-inverse-text);
+	border: 1px solid var(--proclean-color-border);
+	border-top: 2px solid var(--proclean-color-brand-accent);
+	border-radius: 0 0 var(--proclean-border-radius) var(--proclean-border-radius);
+	box-shadow: var(--proclean-shadow);
+	padding: var(--proclean-space-sm) 0;
+	list-style: none;
+	margin: 0;
+}
+
+.proclean-primary-menu li.menu-item-has-children:hover > .sub-menu {
+	display: block;
+}
+
+.proclean-primary-menu .sub-menu li {
+	margin: 0;
+	border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.proclean-primary-menu .sub-menu li:last-child {
+	border-bottom: none;
+}
+
+.proclean-primary-menu .sub-menu a {
+	display: block;
+	padding: var(--proclean-space-xs) var(--proclean-space-md);
+	font-size: 0.875rem;
+	font-weight: var(--proclean-font-weight-normal);
+	color: var(--proclean-color-text);
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.proclean-primary-menu .sub-menu a:hover {
+	background: var(--proclean-color-surface);
+	color: var(--proclean-color-brand-accent);
+}
+
+/* Mega menu: multi-column layout for parents with .mega-menu class */
+.proclean-primary-menu > li.mega-menu > .sub-menu {
+	left: 50%;
+	transform: translateX(-50%);
+	min-width: 600px;
+	width: 600px;
+	padding: var(--proclean-space-md);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--proclean-space-lg);
+	border-radius: 0 0 var(--proclean-border-radius) var(--proclean-border-radius);
+}
+
+.proclean-primary-menu > li.mega-menu > .sub-menu li {
+	flex: 1 1 140px;
+	border-bottom: none;
+	border-right: 1px solid rgba(0,0,0,0.04);
+	padding-right: var(--proclean-space-md);
+	margin-right: var(--proclean-space-md);
+}
+
+.proclean-primary-menu > li.mega-menu > .sub-menu li:last-child {
+	border-right: none;
+	margin-right: 0;
+	padding-right: 0;
+}
+
+.proclean-primary-menu > li.mega-menu > .sub-menu > li.menu-item-has-children {
+	border-bottom: 1px solid rgba(0,0,0,0.06);
+	padding-bottom: var(--proclean-space-sm);
+	margin-bottom: var(--proclean-space-sm);
+}
+
+.proclean-primary-menu > li.mega-menu > .sub-menu > li.menu-item-has-children:last-child {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.proclean-primary-menu > li.mega-menu > .sub-menu > li.menu-item-has-children > .sub-menu {
+	position: static;
+	transform: none;
+	box-shadow: none;
+	border: none;
+	display: block;
+	border-top: 1px solid rgba(0,0,0,0.04);
+	margin-top: var(--proclean-space-xs);
+	padding-top: var(--proclean-space-xs);
 }
 
 .proclean-menu-toggle {
@@ -483,5 +585,238 @@ input[type="reset"]:hover {
 
 	.proclean-main-navigation {
 		width: 100%;
+	}
+}
+
+/* ===== Homepage Sections ===== */
+.proclean-hero {
+	background: var(--proclean-color-surface);
+	border-bottom: 1px solid var(--proclean-color-border);
+	padding: var(--proclean-space-xl) 0;
+}
+
+.proclean-hero-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--proclean-space-xl);
+}
+
+.proclean-hero-content {
+	flex: 1 1 400px;
+}
+
+.proclean-hero-title {
+	font-size: 2.75rem;
+	margin-bottom: var(--proclean-space-md);
+	line-height: 1.15;
+}
+
+.proclean-hero-subtitle {
+	font-size: 1.125rem;
+	color: var(--proclean-color-text-muted);
+	margin-bottom: var(--proclean-space-lg);
+	max-width: 520px;
+}
+
+.proclean-hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--proclean-space-md);
+}
+
+.proclean-hero-image {
+	flex: 1 1 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.proclean-hero-logo-placeholder {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 120px;
+	width: 260px;
+	background: var(--proclean-color-border);
+	color: var(--proclean-color-text-muted);
+	font-weight: var(--proclean-font-weight-bold);
+	font-size: 1.5rem;
+	border-radius: var(--proclean-border-radius);
+}
+
+.proclean-stats {
+	background: var(--proclean-color-brand-primary);
+	color: var(--proclean-color-inverse-text);
+	padding: var(--proclean-space-xl) 0;
+}
+
+.proclean-stats-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: var(--proclean-space-lg);
+}
+
+.proclean-stat {
+	text-align: center;
+	flex: 1 1 160px;
+}
+
+.proclean-stat-number {
+	display: block;
+	font-size: 2.5rem;
+	font-weight: var(--proclean-font-weight-bold);
+	line-height: 1;
+}
+
+.proclean-stat-label {
+	font-size: 0.875rem;
+	opacity: 0.9;
+	margin-top: var(--proclean-space-xs);
+}
+
+.proclean-services {
+	padding: var(--proclean-space-xl) 0;
+}
+
+.proclean-section-header {
+	text-align: center;
+	max-width: 700px;
+	margin: 0 auto var(--proclean-space-lg);
+}
+
+.proclean-section-title {
+	font-size: 2rem;
+	margin-bottom: var(--proclean-space-sm);
+}
+
+.proclean-section-description {
+	color: var(--proclean-color-text-muted);
+	font-size: 1.0625rem;
+	margin-bottom: 0;
+}
+
+.proclean-services-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--proclean-space-lg);
+}
+
+.proclean-service-card {
+	border: 1px solid var(--proclean-color-border);
+	border-radius: var(--proclean-border-radius);
+	padding: var(--proclean-space-lg);
+	flex: 1 1 260px;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.proclean-service-card:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--proclean-shadow);
+	border-color: var(--proclean-color-brand-secondary);
+}
+
+.proclean-service-card-title {
+	font-size: 1.25rem;
+	margin-bottom: var(--proclean-space-sm);
+}
+
+.proclean-service-card-text {
+	font-size: 0.9375rem;
+	color: var(--proclean-color-text-muted);
+	margin-bottom: var(--proclean-space-md);
+}
+
+.proclean-service-card-link {
+	display: inline-flex;
+	align-items: center;
+	font-weight: var(--proclean-font-weight-semibold);
+	color: var(--proclean-color-brand-accent);
+	text-decoration: none;
+}
+
+.proclean-service-card-link:hover {
+	text-decoration: underline;
+}
+
+.proclean-arrow {
+	margin-left: var(--proclean-space-xs);
+	font-size: 0.875em;
+}
+
+.proclean-cta {
+	background: var(--proclean-color-surface);
+	padding: var(--proclean-space-xl) 0;
+	text-align: center;
+}
+
+.proclean-cta-inner {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.proclean-cta-title {
+	font-size: 1.75rem;
+	margin-bottom: var(--proclean-space-sm);
+}
+
+.proclean-cta-text {
+	color: var(--proclean-color-text-muted);
+	margin-bottom: var(--proclean-space-lg);
+}
+
+.proclean-clients {
+	padding: var(--proclean-space-xl) 0;
+	background: var(--proclean-color-inverse-text);
+	border-top: 1px solid var(--proclean-color-border);
+}
+
+.proclean-client-logos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--proclean-space-lg);
+}
+
+.proclean-client-logo {
+	flex: 0 0 120px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--proclean-color-border);
+	border-radius: var(--proclean-border-radius);
+	color: var(--proclean-color-text-muted);
+	font-weight: var(--proclean-font-weight-semibold);
+	font-size: 0.875rem;
+}
+
+@media ( max-width: 768px ) {
+	.proclean-hero-title {
+		font-size: 2rem;
+	}
+
+	.proclean-hero-actions {
+		flex-direction: column;
+	}
+
+	.proclean-hero-actions .proclean-button {
+		width: 100%;
+		text-align: center;
+	}
+
+	.proclean-stats-grid {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.proclean-stat {
+		flex: 1 1 100%;
+		max-width: 220px;
+	}
+
+	.proclean-service-card {
+		flex: 1 1 100%;
 	}
 }

@@ -2,17 +2,27 @@
 /**
  * ProClean Core — Companion Plugin
  *
- * Plugin-territory functionality for the ProClean theme: custom post types,
- * taxonomies, custom Elementor widgets and demo-import integration.
- *
- * Separated from the theme per Envato plugin-territory separation rules so
- * that deactivating this plugin does not break ordinary WordPress pages,
- * posts or basic theme functionality.
- *
  * @package   ProClean_Core
  * @author    ProClean Theme Team
  * @license   GPL-2.0-or-later
  * @since     1.0.0
+ */
+
+/**
+ * Plugin Name: ProClean Core
+ * Plugin URI: https://example.com/plugins/proclean-core
+ * Description: Companion plugin for the ProClean theme providing plugin-territory functionality: custom post types, taxonomies, custom Elementor widgets and demo-import integration.
+ * Version: 1.0.0
+ * Author: ProClean Theme Team
+ * Author URI: https://example.com
+ * Text Domain: proclean-core
+ * Domain Path: /languages
+ * License: GPL-2.0-or-later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Separated from the theme per Envato plugin-territory separation rules so
+ * that deactivating this plugin does not break ordinary WordPress pages,
+ * posts or basic theme functionality.
  */
 
 /**
