@@ -1,10 +1,11 @@
 # TASKS.md — Implementation Stages and Progress
 
-Status: **Phase 4 — Website reconstruction implemented on live WordPress.**
+Status: **Phase 4 — Exact Jani-King clone implemented on live WordPress.**
 
 Live environment: WordPress 7.1.4 at http://proclean.local, exposed publicly via
 https://loud-roses-stand.loca.lt (single preview URL). All created pages return
-HTTP 200 through the tunnel with full CSS/JS loading (no mixed content).
+HTTP 200 through the tunnel with full CSS/JS loading (no mixed content). Actual
+Jani-King logo, images, and text used throughout.
 
 ## Phases
 

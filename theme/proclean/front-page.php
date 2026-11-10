@@ -2,9 +2,9 @@
 /**
  * Front Page template.
  *
- * Faithful reconstruction of the Jani-King homepage:
- * hero (Commercial cleaning / Franchise opportunities), stat counters,
- * services, FAQ, client logos, CTA, why-Jani-King checkmarks.
+ * Exact clone of the Jani-King homepage:
+ * hero, stat counters, services, FAQ, CTA, client logos.
+ * Uses Jani-King's actual images and text.
  *
  * @package   ProClean
  * @since     1.0.0
@@ -23,10 +23,10 @@ get_header();
 			<div class="proclean-hero-inner">
 				<div class="proclean-hero-content">
 					<h1 class="proclean-hero-title">
-						<?php esc_html_e( 'Commercial Cleaning You Can Trust', 'proclean' ); ?>
+						<?php esc_html_e( 'Commercial Cleaning Services', 'proclean' ); ?>
 					</h1>
 					<p class="proclean-hero-subtitle">
-						<?php esc_html_e( 'A dependable and well-established franchise brand with over 56 years of trust.', 'proclean' ); ?>
+						<?php esc_html_e( 'Jani‑King understands how important it is to know the latest information in promoting health and safety for our clients.', 'proclean' ); ?>
 					</p>
 					<div class="proclean-hero-actions">
 						<a class="proclean-button proclean-button--primary button cleaning-service" href="<?php echo esc_url( get_permalink( 8 ) ); ?>">
@@ -38,13 +38,7 @@ get_header();
 					</div>
 				</div>
 				<div class="proclean-hero-image">
-					<?php
-					if ( has_custom_logo() ) {
-						the_custom_logo();
-					} else {
-						echo '<span class="proclean-hero-logo-placeholder">' . esc_html( get_bloginfo( 'name' ) ) . '</span>';
-					}
-					?>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/bnr-homepage-commercial.webp' ); ?>" alt="Commercial Cleaning" />
 				</div>
 			</div>
 		</div>
@@ -54,7 +48,7 @@ get_header();
 		<div class="proclean-container">
 			<div class="proclean-stats-grid">
 				<div class="proclean-stat">
-					<span class="proclean-stat-number proclean-animate-pulse">120+</span>
+					<span class="proclean-stat-number proclean-animate-pulse">120</span>
 					<p class="proclean-stat-label"><?php esc_html_e( 'Support Offices', 'proclean' ); ?></p>
 				</div>
 				<div class="proclean-stat">
@@ -62,12 +56,12 @@ get_header();
 					<p class="proclean-stat-label"><?php esc_html_e( 'Countries Internationally', 'proclean' ); ?></p>
 				</div>
 				<div class="proclean-stat">
-					<span class="proclean-stat-number proclean-animate-pulse">6,900+</span>
+					<span class="proclean-stat-number proclean-animate-pulse">6,900</span>
 					<p class="proclean-stat-label"><?php esc_html_e( 'Unit Franchises', 'proclean' ); ?></p>
 				</div>
 				<div class="proclean-stat">
-					<span class="proclean-stat-number proclean-animate-pulse">9 yrs</span>
-					<p class="proclean-stat-label"><?php esc_html_e( 'Avg. Customer Retention', 'proclean' ); ?></p>
+					<span class="proclean-stat-number proclean-animate-pulse">9</span>
+					<p class="proclean-stat-label"><?php esc_html_e( 'Year Avg. Customer Retention Rate', 'proclean' ); ?></p>
 				</div>
 			</div>
 		</div>
@@ -77,32 +71,25 @@ get_header();
 		<div class="proclean-container">
 			<header class="proclean-section-header">
 				<h2 class="proclean-section-title"><?php esc_html_e( 'Commercial Cleaning Services', 'proclean' ); ?></h2>
-				<p class="proclean-section-description">
-					<?php esc_html_e( 'Thousands of world-recognized brands, businesses and facilities in several major industries globally, have entrusted Jani‑King with their commercial cleaning needs.', 'proclean' ); ?>
-				</p>
 			</header>
 			<div class="proclean-services-grid">
 				<?php
 				$services = array(
 					array(
 						'title' => __( 'Janitorial Services', 'proclean' ),
-						'text'  => __( 'Daily carpet care, lobby and reception cleaning, dusting, office gear, trash removal, kitchen and breakroom, hard surface floors.', 'proclean' ),
-						'link'  => get_permalink( 8 ),
+						'link'  => get_permalink( 48 ),
 					),
 					array(
 						'title' => __( 'Disinfecting', 'proclean' ),
-						'text'  => __( 'Electrostatic disinfection and high-touch surface sanitization for healthier spaces.', 'proclean' ),
-						'link'  => get_permalink( 8 ),
+						'link'  => get_permalink( 49 ),
 					),
 					array(
 						'title' => __( 'Green Cleaning', 'proclean' ),
-						'text'  => __( 'Environmentally responsible cleaning products and sustainable practices.', 'proclean' ),
-						'link'  => get_permalink( 8 ),
+						'link'  => get_permalink( 50 ),
 					),
 					array(
 						'title' => __( 'Specialty Cleaning', 'proclean' ),
-						'text'  => __( 'Carpet, hard-surface, post-construction, tile and grout, window cleaning services.', 'proclean' ),
-						'link'  => get_permalink( 8 ),
+						'link'  => get_permalink( 51 ),
 					),
 				);
 				foreach ( $services as $service ) :
@@ -110,7 +97,6 @@ get_header();
 					<article class="proclean-service-card">
 						<div class="proclean-service-card-body">
 							<h3 class="proclean-service-card-title"><?php echo esc_html( $service['title'] ); ?></h3>
-							<p class="proclean-service-card-text"><?php echo esc_html( $service['text'] ); ?></p>
 							<a class="proclean-service-card-link" href="<?php echo esc_url( $service['link'] ); ?>">
 								<?php esc_html_e( 'Learn more', 'proclean' ); ?>
 								<span class="proclean-arrow">&#8594;</span>
@@ -165,8 +151,8 @@ get_header();
 	<section class="proclean-cta">
 		<div class="proclean-container">
 			<div class="proclean-cta-inner">
-				<h2 class="proclean-cta-title"><?php esc_html_e( 'Ready for a cleaner facility?', 'proclean' ); ?></h2>
-				<p class="proclean-cta-text"><?php esc_html_e( 'Request a free, no-obligation cleaning quote today.', 'proclean' ); ?></p>
+				<h2 class="proclean-cta-title"><?php esc_html_e( 'Get a FREE Cleaning Quote From Your Local Jani‑King Office.', 'proclean' ); ?></h2>
+				<p class="proclean-cta-text"><?php esc_html_e( 'Fill out the form and a local office will contact you to schedule a free consultation.', 'proclean' ); ?></p>
 				<a class="proclean-button proclean-button--primary" href="<?php echo esc_url( get_permalink( 13 ) ); ?>">
 					<?php esc_html_e( 'Get a Free Quote', 'proclean' ); ?>
 				</a>
