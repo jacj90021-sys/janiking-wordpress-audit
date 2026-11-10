@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<nav class="jk-main-navigation" id="primary-navigation">
 					<button class="jk-menu-toggle" aria-expanded="false">
-						<?php esc_html_e( 'Menu', 'proclean' ); ?>
+						<span class="jk-menu-toggle-icon"><?php esc_html_e( 'Menu', 'proclean' ); ?></span>
 					</button>
 					<?php
 					wp_nav_menu(
@@ -68,15 +68,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</nav>
 
 				<div class="jk-header-actions">
-					<?php
-					// Search icon (full-screen search).
-					?>
 					<button class="jk-search-toggle" aria-label="<?php esc_attr_e( 'Search', 'proclean' ); ?>">
 						<span class="jk-search-icon">&#x1F50D;</span>
 					</button>
-					<?php
-					// Phone / CTA button.
-					?>
 					<a class="jk-header-button" href="<?php echo esc_url( get_permalink( 13 ) ); ?>">
 						<?php esc_html_e( 'Get a Free Quote', 'proclean' ); ?>
 					</a>

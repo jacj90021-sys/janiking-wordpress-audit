@@ -1,21 +1,22 @@
 /*
  * ProClean — Jani-King Exact Reference Design System
  * Exact reconstruction of https://www.janiking.com/ visual system.
- * Fonts: Poppins (Google Fonts) + TypeKit lba6xrs
- * Colors: base #2c3e50, secondary #efefef, accent #EE5513, black #000000, white #FFFFFF
+ * Fonts: Poppins (Google Fonts)
+ * Colors: base #006699, accent #EE5513, dark #32373c, text #333333, light #efefef
  */
 
 /*! Design tokens (measured from live reference) */
 :root {
 	/* Brand colors - measured from Jani-King reference CSS */
-	--jk-color-base: #1a3354;
+	--jk-color-base: #006699;
 	--jk-color-secondary: #efefef;
 	--jk-color-secondary-btn: #fde953;
 	--jk-color-accent: #EE5513;
-	--jk-color-black: #000000;
+	--jk-color-black: #32373c;
 	--jk-color-white: #ffffff;
-	--jk-color-text: #1a3354;
-	--jk-color-text-muted: #555555;
+	--jk-color-text: #333333;
+	--jk-color-text-muted: #666666;
+	--jk-color-bg: #32373c;
 
 	/* Typography */
 	--jk-font-family: "Poppins", -apple-system, BlinkMacSystemFont,
@@ -48,9 +49,9 @@
 
 	/* Components */
 	--jk-border-radius: 4px;
-	--jk-button-radius: 50px;
-	--jk-button-padding-y: 0.75rem;
-	--jk-button-padding-x: 2rem;
+	--jk-button-radius: 4px;
+	--jk-button-padding-y: 0.625rem;
+	--jk-button-padding-x: 1.5rem;
 	--jk-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -177,7 +178,7 @@ button, select {
 
 /* ===== Header ===== */
 .jk-header {
-	background: #f8f8f8 !important;
+	background: var(--jk-color-white);
 	border-bottom: 1px solid #dddddd;
 	position: sticky;
 	top: 0;
@@ -194,6 +195,11 @@ button, select {
 
 .jk-site-branding {
 	margin-right: var(--jk-space-lg);
+}
+
+.jk-site-branding img {
+	max-height: 60px;
+	width: auto;
 }
 
 .jk-site-title {
@@ -307,7 +313,7 @@ button, select {
 	padding: 4px 0;
 	font-size: 0.875rem;
 	font-weight: var(--jk-font-weight-regular);
-	color: var(--jk-color-black);
+	color: var(--jk-color-text);
 	text-decoration: none;
 }
 
@@ -325,7 +331,12 @@ button, select {
 	cursor: pointer;
 }
 
-/* Header buttons */
+.jk-header-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--jk-space-sm);
+}
+
 .jk-header-button {
 	display: inline-block;
 	padding: var(--jk-button-padding-y) var(--jk-button-padding-x);
@@ -335,7 +346,7 @@ button, select {
 	color: var(--jk-color-white);
 	background-color: var(--jk-color-base);
 	border: 1px solid var(--jk-color-base);
-	border-radius: var(--jk-button-radius);
+	border-radius: var(--jk-border-radius);
 	text-decoration: none;
 	text-align: center;
 	cursor: pointer;
@@ -349,9 +360,33 @@ button, select {
 	border-color: var(--jk-color-secondary-btn);
 }
 
+.jk-search-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	background: none;
+	border: 1px solid #dddddd;
+	border-radius: var(--jk-border-radius);
+	color: var(--jk-color-black);
+	font-size: 1rem;
+	cursor: pointer;
+	margin-left: var(--jk-space-sm);
+}
+
+.jk-search-toggle:hover {
+	background-color: var(--jk-color-secondary);
+	border-color: var(--jk-color-secondary);
+}
+
+.jk-search-icon {
+	font-size: 1.125rem;
+}
+
 /* ===== Footer ===== */
 .jk-footer {
-	background: var(--jk-color-base);
+	background: var(--jk-color-black);
 	color: var(--jk-color-white);
 	border-top: 1px solid rgba(255,255,255,0.1);
 	padding: var(--jk-space-xl) 0 var(--jk-space-lg);
@@ -404,8 +439,8 @@ input[type="reset"] {
 	font-weight: var(--jk-font-weight-bold);
 	line-height: 1;
 	color: var(--jk-color-white);
-	background-color: var(--jk-color-base);
-	border: 1px solid var(--jk-color-base);
+	background-color: var(--jk-color-accent);
+	border: 1px solid var(--jk-color-accent);
 	border-radius: var(--jk-border-radius);
 	text-decoration: none;
 	text-align: center;
@@ -422,7 +457,6 @@ input[type="reset"]:hover {
 	border-color: #d94810;
 }
 
-/* Secondary link button */
 .jk-button--link {
 	background-color: transparent;
 	border-color: transparent;
@@ -442,7 +476,7 @@ input[type="reset"]:hover {
 	font-size: 0.875rem;
 	font-weight: var(--jk-font-weight-medium);
 	margin-bottom: 0.25rem;
-	color: var(--jk-color-black);
+	color: var(--jk-color-text);
 }
 
 .jk-form input,
@@ -452,8 +486,8 @@ input[type="reset"]:hover {
 	padding: var(--jk-button-padding-y) var(--jk-button-padding-x);
 	font-size: var(--jk-font-size-base);
 	line-height: 1.5;
-	color: var(--jk-color-black);
-	background-color: var(--jk-color-background);
+	color: var(--jk-color-text);
+	background-color: var(--jk-color-white);
 	border: 1px solid #dddddd;
 	border-radius: var(--jk-border-radius);
 	transition: border-color 0.2s, box-shadow 0.2s;
@@ -462,7 +496,7 @@ input[type="reset"]:hover {
 .jk-form input:focus,
 .jk-form select:focus,
 .jk-form textarea:focus {
-	border-color: var(--jk-color-base);
+	border-color: var(--jk-color-accent);
 	outline: 0;
 	box-shadow: 0 0 0 3px rgba(238, 85, 19, 0.2);
 }
@@ -499,13 +533,13 @@ input[type="reset"]:hover {
 	border: 1px solid #dddddd;
 	border-radius: var(--jk-border-radius);
 	text-decoration: none;
-	color: var(--jk-color-black);
+	color: var(--jk-color-text);
 }
 
 .jk-navigation a:hover,
 .navigation a:hover,
 .posts-pagination a:hover {
-	border-color: var(--jk-color-base);
+	border-color: var(--jk-color-accent);
 	color: var(--jk-color-accent);
 }
 
@@ -525,7 +559,7 @@ input[type="reset"]:hover {
 
 /* ===== Homepage Sections ===== */
 
-/* Hero */
+/* Hero Section */
 .jk-hero {
 	background: var(--jk-color-white);
 	border-bottom: 1px solid #dddddd;
@@ -574,7 +608,7 @@ input[type="reset"]:hover {
 	height: auto;
 }
 
-/* Stat counters */
+/* Stat Counters */
 .jk-stats {
 	background: var(--jk-color-white);
 	padding: var(--jk-space-xl) 0;
@@ -597,7 +631,7 @@ input[type="reset"]:hover {
 	font-size: 2.5rem;
 	font-weight: var(--jk-font-weight-bold);
 	line-height: 1;
-	color: var(--jk-color-black);
+	color: var(--jk-color-text);
 }
 
 .jk-stat-label {
@@ -606,7 +640,7 @@ input[type="reset"]:hover {
 	margin-top: var(--jk-space-xs);
 }
 
-/* Services section */
+/* Services Section */
 .jk-services {
 	padding: var(--jk-space-xl) 0;
 	background: var(--jk-color-white);
@@ -646,7 +680,7 @@ input[type="reset"]:hover {
 .jk-service-card:hover {
 	transform: translateY(-2px);
 	box-shadow: var(--jk-shadow);
-	border-color: var(--jk-color-base);
+	border-color: var(--jk-color-accent);
 }
 
 .jk-service-card-image {
@@ -777,7 +811,7 @@ input[type="reset"]:hover {
 	font-size: 1rem;
 	font-weight: var(--jk-font-weight-bold);
 	margin-bottom: var(--jk-space-xs);
-	color: var(--jk-color-black);
+	color: var(--jk-color-text);
 }
 
 /* Customer Retention */
@@ -801,7 +835,7 @@ input[type="reset"]:hover {
 .jk-retention-number {
 	font-size: 2.5rem;
 	font-weight: var(--jk-font-weight-bold);
-	color: var(--jk-color-black);
+	color: var(--jk-color-text);
 }
 
 .jk-retention-label {
@@ -810,7 +844,7 @@ input[type="reset"]:hover {
 	margin-top: var(--jk-space-xs);
 }
 
-/* CTA section */
+/* CTA Section */
 .jk-cta {
 	background: var(--jk-color-white);
 	padding: var(--jk-space-xl) 0;
@@ -869,21 +903,14 @@ input[type="reset"]:hover {
 }
 
 /* Orange checkmark icon */
-.jk-check {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+.jk-check-img {
 	width: 24px;
 	height: 24px;
-	background: var(--jk-color-accent);
-	border-radius: 50%;
-	color: var(--jk-color-white);
-	font-size: 0.75rem;
-	font-weight: var(--jk-font-weight-bold);
-	margin-right: var(--jk-space-sm);
+	margin-left: var(--jk-space-xs);
 	flex-shrink: 0;
 }
 
+/* Mobile */
 @media ( max-width: 768px ) {
 	.jk-hero-title {
 		font-size: 2rem;
@@ -954,7 +981,19 @@ input[type="reset"]:hover {
 		border-bottom: 1px solid #dddddd;
 	}
 
-	.jk-footer-inner {
+	.jk-header-actions {
 		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.jk-header-actions .jk-button {
+		width: 100%;
+		text-align: center;
+	}
+
+	.jk-header-actions .jk-search-toggle {
+		width: auto;
+		margin-left: 0;
+		margin-top: var(--jk-space-xs);
 	}
 }
