@@ -1,0 +1,28 @@
+# WordPress core - never commit
+wp-admin/
+wp-includes/
+wp-config.php
+wp-settings.php
+wp-load.php
+wp-links-opml.php
+wp-login.php
+wp-mail.php
+wp-signup.php
+index.php
+
+# Media library - never commit
+wp-content/uploads/
+
+# Third-party plugins - never commit
+wp-content/plugins/
+
+# Parent theme - never commit
+wp-content/themes/astra/
+
+# Generated/cache
+wp-content/cache/
+*.log
+node_modules/
+vendor/
+.DS_Store
+*.local
