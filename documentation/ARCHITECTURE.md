@@ -1,192 +1,264 @@
 # documentation/ARCHITECTURE.md — Proposed WordPress Implementation
 
-Source: https://www.janiking.com/ (audited 2026-11-10)
+Source: Jani-King reference audit + ThemeForest competitor benchmarks + Envato
+requirements (audited 2026-11-10). This supersedes the earlier Astra +
+Elementor-Free-only architecture, which was scoped for a simple website
+recreation only. The new scope is a commercial ThemeForest product (Objective
+B) in addition to the website recreation (Objective A).
 
-## Stack Decisions
+## Objectives
+
+- **Objective A**: Recreate Jani-King's page structure, navigation, visual
+  presentation, content organization, reusable sections and responsive
+  behaviour in WordPress.
+- **Objective B**: Build an original, commercially distributable WordPress
+  theme suitable for ThemeForest, with standalone theme, companion plugin,
+  Elementor Free integration, header/footer builder, demo importer, WooCommerce,
+  documentation, and testing.
+
+## Stack decisions
 
 | Layer | Technology | Rationale |
 |-------|-----------|-----------|
-| CMS | WordPress (latest stable) | Required by task |
-| Theme | Astra Free (parent) + custom child theme | Required; lightweight, compatible with Elementor |
-| Page Builder | Elementor Free | Required; visual, fully editable by client |
-| SEO | Yoast SEO (free) | Already used on reference site (Yoast sitemaps detected) |
-| Forms | WPForms Free (or Contact Form 7) | Quote & franchise inquiry forms |
-| Security | Really Simple Security (free) | Optional hardening |
-| Custom code | Child theme `functions.php` + `style.css` + one JS bundle | Only where justified |
+| CMS | WordPress (latest stable) | Required |
+| Theme | Original standalone theme (own product identity) | Commercial product |
+| Companion plugin | Core plugin for plugin-territory functionality | Envato separation |
+| Page builder | Elementor Free (primary visual builder) | Required; no Pro assumed |
+| Custom Elementor widgets | Theme/plugin registered widgets | Cleaning-service components |
+| SEO | Yoast SEO (free) | Reference site uses Yoast sitemaps |
+| Forms | WPForms Free (or Contact Form 7) | Quote & franchise forms |
+| Security | Really Simple Security (free, optional) | Hardening |
+| Plugin activation | TGM Plugin Activation | Envato requirement for bundled plugins |
+| Custom code | Theme `functions.php` + `style.css` + plugin PHP + asset bundles | Only where justified |
 | Version control | GitHub | Required |
 
 React, Next.js, Vite, standalone TypeScript and headless replacements are
-prohibited. No build step is required unless a single JS bundle is justified.
+prohibited. No build step unless justified.
 
-## What Astra Handles
+## What the standalone theme owns
 
-- Site identity (logo, site title, tagline)
-- Global typography (font family, weights, heading scale)
-- Global color palette (brand orange, dark, white, teal, grays)
-- Container width (max-width ~1200px)
-- Header & footer layout framework
-- Responsive breakpoints (desktop/tablet/mobile)
-- Mobile hamburger menu base behavior
-- Page/post templates (full-width, canvas, boxed)
+The theme owns **presentation only**:
+- WordPress template hierarchy (index, page, single, archive, search, 404)
+- Header and footer presentation
+- Homepage and page layouts
+- Blog archive and single posts
+- Search results and 404
+- Reusable template parts (`templates/`, `template-parts/`)
+- Navigation and menus
+- Sidebars and widget areas
+- Typography and global styling (via Customizer)
+- Responsive layouts
+- Gutenberg compatibility (block editor + editor styles)
+- WooCommerce styling (shop, product, cart, checkout, account)
+- Translation and RTL readiness
+- Child theme support
 
-Astra is configured via the Customizer; these settings live in the database,
-not in committed code.
+The theme must work as a normal WordPress theme **without** Elementor or the
+companion plugin (Envato "out of the box" requirement).
 
-## What Elementor Free Builds
+## What the companion plugin owns
 
-All public-facing pages are built in Elementor Free:
+The plugin owns **plugin-territory functionality** (Envato requirement):
+- Custom Post Types: Services, Industries, Testimonials, Team Members, Projects
+- Custom Taxonomies: service categories, industry categories
+- Custom Fields / meta boxes (design-related may stay in theme)
+- Shortcodes where appropriate
+- Custom Elementor widget registration
+- Theme-specific functionality
+- Demo import integration hooks
 
-- Homepage (hero, stats, services, FAQ, client logos, video section)
-- Commercial Cleaning landing + service sub-pages
-- Industry landing pages (16)
-- Franchise opportunity pages (index + unit/domestic/international + veterans)
-- Location finder page
-- About Us, History, National Accounts, Careers, Get a Quote, FAQ,
-  Google Reviews, Why Jani-King, Privacy Policy, Terms of Use
-- Cleaning Resources / checklists pages
-- Campaign pages (low priority)
+Deactivating the companion plugin must **not break** ordinary pages, posts, or
+the theme's basic operation.
 
-Elementor Free does NOT include: theme builder (header/footer), popup builder,
-global widgets, motion effects, form builder. Header/footer remain Astra's
-responsibility.
+## What Elementor Free builds
 
-## Native WordPress Content
+Elementor Free is used for page layouts. Custom Elementor widgets (registered
+via the companion plugin):
+- Hero, Services, Industry cards, Icon boxes, Testimonials, Team members,
+  Statistics (counters), Pricing, FAQs, Galleries, Call-to-action, Blog grids,
+  Project grids, Contact and quotation sections.
 
-| Content Type | WordPress Native | Notes |
+Widget requirements: properly structured, responsive, accessible, customizable,
+consistent with the design system, tested with Elementor Free.
+
+Elementor Free does NOT include: theme builder, popup builder, global widgets,
+motion effects, form builder. Header/footer remain the theme's responsibility
+(via the header/footer system, not Elementor Pro).
+
+## Header/footer system
+
+A professional independent header/footer customization system (not Elementor Pro
+Theme Builder):
+- Multiple header layouts (default, sticky, transparent)
+- Multiple footer layouts (multi-column variants)
+- Logo and site identity
+- Desktop navigation with mega menus/dropdowns
+- Mobile navigation (hamburger, accordion)
+- Sticky header option
+- CTA buttons (phone, quote)
+- Footer columns, socials, copyright
+- Responsive controls per device
+
+## Theme settings (Customizer)
+
+Centralized controls:
+- Global colors (brand primary/secondary, text, background)
+- Typography (font family, weight, size for headings/body)
+- Layout widths (container max-width)
+- Header, footer, button settings
+- Blog layouts, sidebars
+- Global styling and responsive settings
+- All settings sanitized, validated, escaped properly
+
+## Native WordPress content
+
+| Content type | WordPress native | Notes |
 |--------------|------------------|-------|
 | Blog posts | Posts | `/blog/` archive, categories, tags |
 | News / In the Press | Posts (category "news") | `/in-the-press/` archive |
 | Static pages | Pages | All service, industry, franchise, about, legal pages |
-| Locations | Pages | 120 city pages; same template, custom fields via ACF-free alternatives or Elementor dynamic data |
+| Services | Companion plugin CPT | Reusable service content |
+| Industries | Companion plugin CPT | Reusable industry content |
+| Testimonials | Companion plugin CPT | Reusable testimonials |
+| Team members | Companion plugin CPT | Reusable team content |
+| Projects | Companion plugin CPT | Reusable project/portfolio content |
+| Locations | Pages | City pages (template-based or CPT deferred) |
 | Media | Media Library | Uploaded images (not committed to git) |
 
-## Custom Post Types / Custom Fields
+Locations: 120 US city pages. Defer decision between page-per-city vs CPT
+until implementation. Avoid unnecessary CPT complexity for MVP.
 
-**Not necessary.** All content maps cleanly to native Posts and Pages.
-Location pages can use:
-- Page templates (Elementor Canvas) + manual entry, OR
-- A single location Page template duplicated per city (not ideal for 120 cities,
-  but avoids CPT complexity)
+## Custom post types / custom fields
 
-If the client later needs dynamic location data, a small CPT + Advanced Custom
-Fields (free) could be added — but this is deferred and not justified for TASK
-001/MVP.
+Justified CPTs: Services, Industries, Testimonials, Team Members, Projects
+(generically reusable content that users would lose on theme switch — plugin
+territory). Not justified: location-specific data (deferred).
 
-## Custom Plugin
+## Custom plugin
 
-**Not justified for MVP.** All required behavior can be achieved with:
-- Astra Customizer (styling)
-- Elementor Free (layout)
-- WPForms Free (forms)
-- Yoast SEO (SEO)
+**Justified** for commercial product: plugin-territory separation is an Envato
+requirement. The companion plugin is required, not optional.
 
-A tiny custom plugin is only warranted if a feature cannot be solved by the
-above (e.g. a custom location finder shortcode or regional quote routing). That
-decision is deferred to Stage 7/8.
-
-## Additional Free Plugins
+## Additional free plugins
 
 | Plugin | Purpose | Free? |
 |--------|---------|-------|
-| Yoast SEO | SEO, sitemaps (match reference) | Yes |
+| Yoast SEO | SEO, sitemaps | Yes |
 | WPForms Free | Quote & franchise forms | Yes |
-| Really Simple Security | Hardening | Yes |
-| (optional) Elementor Header & Footer Builder | If header/footer need Elementor control | Yes |
+| Really Simple Security | Hardening | Yes, optional |
 
 No premium plugins. No Elementor Pro assumed.
 
-## File Discipline (Git)
+## File discipline (Git)
 
 **Committed:**
-- WordPress child theme (`style.css`, `functions.php`, `screenshot.png`)
-- Custom CSS/JS assets (one `style.css`, one `main.js`)
-- AGENTS.md, README.md, `.gitignore`
-- TASKS.md, DESIGN-SYSTEM.md, PROJECT.md, documentation/
+- Standalone theme (`style.css`, `functions.php`, `templates/`,
+  `template-parts/`, `inc/`, `assets/`, `languages/`, `screenshot.png`)
+- Companion plugin (main file, `includes/`, Elementor integration, widgets,
+  post types, taxonomies, fields, demo-import integration)
+- `.gitignore`, `AGENTS.md`, `README.md`, `PROJECT.md`, `TASKS.md`,
+  `DESIGN-SYSTEM.md`, `documentation/`, `CHANGELOG.md`
 
 **NOT committed (gitignored):**
-- WordPress core (`wp-admin/`, `wp-includes/`, `wp-config.php`, etc.)
+- WordPress core, `wp-config.php`
 - `wp-content/uploads/` (media library)
 - `wp-content/plugins/` (third-party plugins)
-- `wp-content/themes/astra/` (parent theme)
+- `wp-content/themes/` parent themes (not our theme)
 - `node_modules/`, vendor, build/cache artifacts
 
-**Repository structure (example):**
+## Repository structure (planned)
+
 ```
-janiking-wp/
+janiking-theme/
   .gitignore
   AGENTS.md
   README.md
+  CHANGELOG.md
   PROJECT.md
   TASKS.md
   DESIGN-SYSTEM.md
   documentation/
     SITEMAP.md
     ARCHITECTURE.md
-  wp-content/
-    themes/
-      janiking-child/           <- custom child theme (committed)
-        style.css
-        functions.php
-        assets/
-          css/
-            custom.css
-          js/
-            main.js
+    DESIGN-SYSTEM.md (copy/ref)
+    COMPETITOR-RESEARCH.md
+    FEATURES.md
+    QA-REPORT.md
+    THEMEFOREST-COMPLIANCE.md
+  theme/                      <- standalone theme (committed)
+    style.css
+    functions.php
+    screenshot.png
+    templates/
+    template-parts/
+    inc/
+    assets/
+      css/
+      js/
+      images/
+    languages/
+  plugin/                     <- companion plugin (committed)
+    janiking-core.php
+    includes/
+      class-widgets.php
+      class-post-types.php
+      class-taxonomies.php
+      class-demo-import.php
+    assets/
 ```
 
-## Shared Components (reusable)
+## Custom development required
 
-Built once in Elementor (saved as templates/blocks) or via Astra:
+1. **Standalone theme** — full WordPress theme with template hierarchy.
+2. **Companion plugin** — CPTs, taxonomies, custom Elementor widgets,
+   demo-import integration.
+3. **Custom CSS** — brand colors, buttons, heading scale, footer overrides,
+   responsive tweaks.
+4. **JS modules** — mobile menu, mega-menu, FAQ accordion, quote form,
+   smooth scroll. Small, justified files; no framework.
+5. **Theme options** — Customizer-based settings framework.
+6. **Header/footer system** — independent customization system.
+7. **Demo importer** — WP Filesystem-based, explicit consent, overwrite warning.
+8. **WooCommerce styling** — shop, product, cart, checkout, account pages.
+9. **Elementor Free widgets** — focused set of custom widgets.
 
-1. Header (logo, mega menu, search, phone, CTA)
-2. Footer (4 columns, socials, copyright, address)
-3. Hero banner
-4. Stat counter
-5. Service card (icon + title + description + link)
-6. Industry card (icon + name link)
-7. Client/partner logo grid
-8. FAQ accordion
-9. Why Jani-King checkmarks
-10. In-house vs outsourced comparison table
-11. Quote form section
-12. Social icons
-13. "Also of Interest" related links
+No custom post types for locations (deferred). No React components. No build
+pipeline unless justified. No headless architecture.
 
-## Implementation Stages
+## Implementation stages
 
-See TASKS.md for the full stage breakdown (Stage 0 audit → Stage 9 handover).
+See TASKS.md for Phase 1 (inspection) → Phase 8 (release preparation).
 
-## Custom Development Required
+## QA & acceptance
 
-1. **Child theme setup** — Astra child theme with `functions.php` enqueuing
-   custom CSS/JS.
-2. **Custom CSS** — brand colors, button styles, heading scale, footer overrides,
-   responsive tweaks not exposed by Astra Customizer.
-3. **Single JS bundle** — mobile mega-menu toggle, FAQ accordion open/close,
-   quote form enhancement, smooth scroll. One file, no framework.
-4. **Elementor templates** — reusable blocks for header/footer-adjacent sections
-   and repeated section patterns.
-5. **Form integration** — WPForms Free quote form with optional regional routing.
+- Fresh WordPress installation
+- Theme activation without companion plugin
+- Plugin activation/deactivation
+- Elementor Free + all custom widgets
+- Header/footer customization
+- Demo importing
+- Every page template, homepage, blog archive, single articles, search
+- Navigation, contact forms, quotation forms
+- WooCommerce workflows
+- Mobile/tablet/desktop layouts
+- Accessibility, performance, security
+- PHP and WordPress compatibility
+- Envato Theme Check (REQUIRED notices fixed)
 
-No custom post types, no React components, no build pipeline, no headless
-architecture.
-
-## Inaccessible Pages / Unresolved Questions
+## Inaccessible pages / unresolved questions
 
 - Campaign pages (`/peak/`, `/pristine/`, `/spring-clean-challenge/`,
-  `/make-an-appointment/`, `/make-the-transition-gulf-coast/`) are legacy; their
-  inclusion in the recreation is unconfirmed.
-- Exact brand color hex values were not measurable via DevTools; colors in
-  DESIGN-SYSTEM.md are estimates marked **(est.)**.
-- Font family was not directly measurable; typography values are estimates.
-- International regional sites (janiking.ca, janiking.co.uk, janiking.pt, etc.)
-  are external domains — not part of this recreation.
-- Location-finder logic for 120 cities: to be confirmed whether each city needs
-  a unique Page or a single dynamic template.
-- Quote form backend routing (regional office assignment) is not specified on
-  the reference site.
+  `/make-an-appointment/`, `/make-the-transition-gulf-coast/`) are legacy;
+  inclusion unconfirmed.
+- Exact brand color hex values are estimates marked **(est.)** — verify via
+  DevTools.
+- Font family not directly measurable — typography values are estimates.
+- International regional sites (janiking.ca, .co.uk, .pt) are external domains
+  — not part of this recreation.
+- Location-finder logic for 120 cities: page-per-city vs CPT to be confirmed.
+- Quote form backend routing (regional office assignment) not specified.
 
 ## Approval
 
-TASK 001 (audit + architecture) is complete. Awaiting approval before
-proceeding to TASK 002 (implementation).
+Phase 2 architecture proposal complete. Awaiting approval before Phase 3
+(WordPress foundation / implementation).

@@ -1,90 +1,111 @@
 # TASKS.md — Implementation Stages and Progress
 
-Status: **TASK 001 — AUDIT ONLY. No implementation started.**
-All stages below are planned, not executed.
+Status: **Phase 2 — Architecture proposal complete. Awaiting approval before
+Phase 3.**
 
-## Stage 0 — Audit (in progress)
+No implementation has begun.
 
-- [x] Inspect homepage, navigation, footer, core landing pages
-- [x] Inspect services, industries, franchise, about, locations, blog,
-      news, contact/conversion pages
-- [x] Enumerate full page inventory via Yoast sitemap (331 unique URLs in
-      `page-sitemap.xml`; 1,046 posts across `post-sitemap.xml` +
-      `post-sitemap2.xml`)
-- [x] Document design system (DESIGN-SYSTEM.md)
-- [x] Plan WordPress architecture (documentation/ARCHITECTURE.md)
-- [x] Produce page inventory (documentation/SITEMAP.md)
+## Phases
 
-## Stage 1 — Repository & Tooling
+### Phase 1 — Project inspection (complete)
 
-- [ ] Initialise GitHub repository with `.gitignore` (wp-core, uploads,
-      vendor, node_modules, generated assets)
-- [ ] Add `composer.json` / `package.json` only if a build step is justified
-- [ ] Add AGENTS.md recording lint/typecheck commands
+- [x] Inspect repository (git status, log, remote)
+- [x] Read all existing project documents (PROJECT.md, TASKS.md,
+      DESIGN-SYSTEM.md, documentation/SITEMAP.md, documentation/ARCHITECTURE.md)
+- [x] Check Git status and remote repository
+- [x] Verify sitemap URL counts (331 pages; 1,046 posts; 2 region sitemaps)
+- [x] Identify completed, incomplete, and outdated research
+- [x] Preserve useful decisions; update outdated architecture
 
-## Stage 2 — WordPress Bootstrapping
+### Phase 2 — Reference and architecture verification (complete)
 
-- [ ] Provide minimal WordPress install scaffold (never committed: core files)
-- [ ] Define `wp-config.php` constants (DB, salts, ABSPATH guard)
-- [ ] Install & activate: Astra, Elementor Free, Yoast SEO (free), WPForms
-      Free or equivalent, Really Simple Security (free, optional)
+- [x] Review Jani-King reference pages (audited)
+- [x] Review sitemap (verified counts)
+- [x] Review 10 ThemeForest competitor products (documentation/COMPETITOR-RESEARCH.md)
+- [x] Review official Envato requirements (documentation/THEMEFOREST-COMPLIANCE.md)
+- [x] Finalize page inventory (documentation/SITEMAP.md)
+- [x] Finalize architecture (documentation/ARCHITECTURE.md)
+- [x] Finalize design system (DESIGN-SYSTEM.md — estimates marked)
+- [x] Finalize file structure (documentation/ARCHITECTURE.md)
+- [x] Define testing procedures
+- [x] Produce FEATURES.md (documentation/FEATURES.md)
+- [x] Produce THEMEFOREST-COMPLIANCE.md (documentation/THEMEFOREST-COMPLIANCE.md)
 
-## Stage 3 — Theme & Global Styles
+### Phase 3 — WordPress foundation
 
-- [ ] Astra child theme (single `style.css` + minimal `functions.php`)
-- [ ] Register Astra color palette and typography matching DESIGN-SYSTEM.md
-- [ ] Custom CSS for buttons, headings, footer, mega-menu overrides
-- [ ] Enqueue custom JS (mobile menu, mega-menu, accordion, quote form,
-      load-more) as one bundled file
+- [ ] Create standalone theme skeleton (style.css, functions.php, screenshot.png)
+- [ ] Create companion plugin skeleton (main plugin file)
+- [ ] Establish design system (theme Customizer defaults)
+- [ ] Implement template foundation (index, page, single, archive, search, 404)
+- [ ] Implement global settings (Customizer framework)
+- [ ] Establish code-quality checks (PHP lint, WordPress coding standards)
+- [ ] Configure .gitignore, AGENTS.md, README.md
+- [ ] Set up CHANGELOG.md
 
-## Stage 4 — Header, Footer & Shared Components
+### Phase 4 — Website recreation (Jani-King reference)
 
-- [ ] Header: logo, top nav with mega menus, search, phone, CTA
-- [ ] Footer: 4-column layout + socials + back-to-top
-- [ ] Global sections: announcement/CTA bar, search overlay, mobile nav
+- [ ] Build header (logo, mega menu, search, phone, CTA)
+- [ ] Build footer (multi-column, socials, copyright, address)
+- [ ] Build homepage sections (hero, stats, services, FAQ, client logos, video)
+- [ ] Build reusable page templates (service, industry, franchise, location)
+- [ ] Build service layouts (overview + detail)
+- [ ] Build industry layouts (overview + detail)
+- [ ] Build franchise layouts (overview + detail)
+- [ ] Build location layouts (template-based city pages)
+- [ ] Build blog and content layouts (archive, single, search)
+- [ ] Implement page inventory (documentation/SITEMAP.md)
+- [ ] Reproduce reference interactions (mega menu, FAQ accordion, quote form)
 
-## Stage 5 — Core Pages (Elementor)
+### Phase 5 — Product functionality
 
-- [ ] Home, Commercial Cleaning, Franchise Opportunities, Why Jani-King,
-      About Us, Locations, Careers, Get a Quote, FAQ, Google Reviews,
-      History, National Accounts, Veterans Get Started, Privacy Policy,
-      Terms of Use
-- [ ] Service pages: Disinfecting, Green Cleaning, Janitorial, Specialty
-      (+10 sub-services), Cleaning Resources
-- [ ] Industry pages: 16 industry landing pages
-- [ ] Franchise sub-pages: Unit Franchise, Domestic Franchisor,
-      International Franchisor, How to Start a Cleaning Business
-- [ ] Location pages: 120 city pages (data-driven, template-based)
+- [ ] Build Elementor Free custom widgets
+- [ ] Implement header/footer customization system
+- [ ] Implement theme options (Customizer)
+- [ ] Implement companion plugin content types
+- [ ] Implement demo importer (explicit consent, overwrite warning)
+- [ ] Implement WooCommerce compatibility
 
-## Stage 6 — Content & Templates
+### Phase 6 — Demo and documentation
 
-- [ ] Native WordPress Posts for Blog (archive, single, categories, tags)
-- [ ] Native WordPress Pages for News/In-The-Press (archive, single)
-- [ ] Elementor Canvas/Full-Width templates where required
-- [ ] reusable blocks (icons, stat counters, client logos, FAQ accordions)
+- [ ] Prepare complete original demos
+- [ ] Configure menus and widgets
+- [ ] Prepare demo content (licensed assets only)
+- [ ] Write installation instructions
+- [ ] Write customization documentation
+- [ ] Prepare changelog
 
-## Stage 7 — Forms & Integrations
+### Phase 7 — Quality assurance
 
-- [ ] Quote request form (WPForms Free) with regional routing
-- [ ] Franchise inquiry form
-- [ ] Job application redirect to ADP
-- [ ] Newsletter signup (optional, free plugin)
+- [ ] Test fresh WordPress installation
+- [ ] Test theme activation without companion plugin
+- [ ] Test plugin activation/deactivation
+- [ ] Test Elementor Free + all custom widgets
+- [ ] Test header/footer customization
+- [ ] Test demo importing
+- [ ] Test all page templates
+- [ ] Test responsive layouts (mobile/tablet/desktop)
+- [ ] Test demo importing with overwrite warning
+- [ ] Test compatibility (PHP, WordPress, plugin conflicts)
+- [ ] Fix defects; record evidence (documentation/QA-REPORT.md)
 
-## Stage 8 — Hardening, Performance, QA
+### Phase 8 — Commercial release preparation
 
-- [ ] Caching, image optimisation, core web vitals pass
-- [ ] Accessibility audit (a11y) on nav, forms, contrast
-- [ ] Responsive QA: desktop, tablet, mobile breakpoints
-- [ ] Lint and typecheck scripts; PHP lint via `php -l`
+- [ ] Verify Envato requirements (Theme Check, coding standards)
+- [ ] Run Theme Check (fix all REQUIRED notices)
+- [ ] Run code-quality checks
+- [ ] Verify licensing (assets, fonts, images)
+- [ ] Prepare release package (theme zip + plugin zip + docs)
+- [ ] Prepare public documentation
+- [ ] Prepare screenshots and preview assets
+- [ ] Prepare product description
+- [ ] Prepare changelog
 
-## Stage 9 — Documentation & Handover
+## Progress log
 
-- [ ] README with setup instructions
-- [ ] AGENTS.md with lint/typecheck commands
-- [ ] GitHub Actions for lint/CI (optional)
-
-## Progress Log
-
-| Date | Stage | Note |
+| Date | Phase | Note |
 |------|-------|------|
-| 2026-11-10 | 0 | Audit complete; awaiting approval before Stage 1 |
+| 2026-11-10 | 0/1/2 | Audit complete; architecture proposal produced; awaiting approval |
+
+## Repository (GitHub)
+
+https://github.com/jacj90021-sys/janiking-wordpress-audit
