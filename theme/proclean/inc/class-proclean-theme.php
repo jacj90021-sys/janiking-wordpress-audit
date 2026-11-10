@@ -102,8 +102,8 @@ class ProClean_Theme {
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'      => 100,
-				'width'       => 250,
+				'height'      => 420,
+				'width'       => 800,
 				'flex-width'  => true,
 				'flex-height' => true,
 			)
@@ -183,6 +183,14 @@ class ProClean_Theme {
 	public function assets() {
 		$version = self::VERSION;
 
+		// Poppins font (matches reference theme font).
+		wp_enqueue_style(
+			self::PREFIX . 'fonts',
+			'https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic',
+			array(),
+			$version
+		);
+
 		// Main stylesheet.
 		wp_enqueue_style(
 			self::PREFIX . 'style',
@@ -228,7 +236,7 @@ class ProClean_Theme {
 		$wp_customize->add_setting(
 			'proclean_brand_primary',
 			array(
-				'default'           => '#1a3a5c',
+				'default'           => '#2c3e50',
 				'sanitize_callback' => array( $this, 'sanitize_hex_color' ),
 			)
 		);

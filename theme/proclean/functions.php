@@ -17,3 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Load the main theme class.
 require_once get_template_directory() . '/inc/class-proclean-theme.php';
+
+// Load the mega menu walker class.
+require_once get_template_directory() . '/inc/class-proclean-mega-menu-walker.php';

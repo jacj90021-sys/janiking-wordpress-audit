@@ -1,6 +1,6 @@
 # documentation/QA-REPORT.md — Test Evidence (Phases 3 & 4)
 
-Status: **Phase 4 — Website construction. Real test evidence recorded below.**
+Status: **Phase 4 — Exact Jani-King reference reconstruction implemented on live WordPress.**
 
 ## Test environment
 
@@ -8,11 +8,29 @@ Status: **Phase 4 — Website construction. Real test evidence recorded below.**
 - PHP: 8.3.6 (cli + Apache mod_php)
 - Database: MariaDB 10.11 (database `proclean_wp`)
 - Web server: Apache 2 with mod_rewrite
-- Active theme: ProClean (1.0.0)
+- Active theme: ProClean / Jani-King clone (1.0.0)
 - Active plugins: Elementor, Contact Form 7, ProClean Core
 - Browser automation: **NOT available** — network restrictions block Chromium
   download (puppeteer) and snapd is not running; no system browser installed.
-  See limitation in section 10.
+  Pixel-perfect visual comparison via screenshots could NOT be performed.
+  Visual verification below is based on direct inspection of the live reference
+  HTML/CSS and HTTP-level verification of the reconstruction.
+
+## Reference inspection (live site)
+
+The live Jani-King site (https://www.janiking.com/) was inspected directly:
+
+- Theme: consulting (parent) + consulting-child (child theme), Bootstrap 4.0.2,
+  Elementor Pro.
+- Font: Poppins (Google Fonts) + TypeKit lba6xrs.
+- Colors measured from live CSS/assets: base #2c3e50, secondary #efefef,
+  accent #EE5513, black #000000, white #FFFFFF.
+- Homepage sections (exact order): header, hero (2 image columns), stat counters
+  (120/10/6,900/9), services (2 columns), FAQ, Why Jani-King (4 icon/heading
+  pairs), Customer Retention, Blog, CTA.
+- Mega menu: COMMERCIAL CLEANING / FRANCHISING / WHY JANI-KING? / LOCATIONS /
+  CAREERS with dropdown sub-menus.
+
 
 ## 1. PHP lint — every PHP file
 
@@ -225,3 +243,28 @@ Mega-menu parents use the `mega-menu` CSS class for multi-column dropdown layout
 | 2026-11-10 | Menu configuration | Passed | Primary + footer menus active |
 | 2026-11-10 | CF7 form rendering | Passed | Shortcode renders on quote page |
 | 2026-11-10 | HTTPS detection (wp-config) | Passed | X-Forwarded-Proto handled; assets generate https:// |
+| 2026-11-10 | Reference HTML/CSS inspection | Passed | Live site structure, colors, fonts, sections mapped |
+| 2026-11-10 | Homepage section order match | Passed | 9 sections match reference order |
+| 2026-11-10 | Mega-menu structure match | Passed | 5 top-level items, dropdowns mapped |
+
+## Visual verification limitations
+
+- **Pixel-perfect screenshot comparison: NOT performed.** Browser automation
+  (Puppeteer/Chromium) could not be installed due to network restrictions, and
+  no system browser is available in this environment. Per the acceptance
+  criteria, pixel-perfect completion cannot be claimed without screenshot
+  comparisons.
+- Visual fidelity was established by inspecting the live reference HTML/CSS
+  directly and reproducing the exact structure, class names, colors, typography
+  (Poppins), section order, and content. All asset URLs reference the actual
+  Jani-King images downloaded from the live site.
+
+## Known visual differences (to be resolved with browser access)
+
+- Exact pixel dimensions (padding, margins, font sizes, line heights) were set
+  from observed values but not verified by rendering comparison.
+- Hero image cropping/aspect ratios match source files but not verified at
+  render time.
+- Mega-menu hover transitions and sticky header animation not browser-tested.
+- Mobile/tablet responsive layouts not browser-tested.
+

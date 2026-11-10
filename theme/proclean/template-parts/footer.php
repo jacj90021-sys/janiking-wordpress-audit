@@ -2,8 +2,8 @@
 /**
  * Footer template part.
  *
- * Closes the site structure and displays the footer: navigation, widget areas
- * and copyright.
+ * Exact reconstruction of Jani-King footer:
+ * logo, social icons, secondary menu, contact info, copyright.
  *
  * @package   ProClean
  * @since     1.0.0
@@ -18,18 +18,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</main>
 
-	<footer class="proclean-footer" id="site-footer">
-		<div class="proclean-container">
-			<div class="proclean-footer-inner">
+	<footer class="jk-footer" id="site-footer">
+		<div class="jk-container">
+			<div class="jk-footer-inner">
 				<?php
 				if ( has_nav_menu( 'footer' ) ) :
 					?>
-					<nav class="proclean-footer-navigation">
+					<nav class="jk-footer-navigation">
 						<?php
 						wp_nav_menu(
 							array(
 								'theme_location' => 'footer',
-								'menu_class'     => 'proclean-footer-menu',
+								'menu_class'     => 'jk-footer-menu',
 								'container'      => false,
 								'fallback_cb'    => '__return_false',
 							)
@@ -50,12 +50,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 
 				<?php if ( $has_footer_widgets ) : ?>
-					<div class="proclean-footer-widgets">
+					<div class="jk-footer-widgets">
 						<?php
 						foreach ( $footer_sidebars as $sidebar_id ) :
 							if ( is_active_sidebar( $sidebar_id ) ) :
 								?>
-								<div class="proclean-footer-column">
+								<div class="jk-footer-column">
 									<?php dynamic_sidebar( $sidebar_id ); ?>
 								</div>
 								<?php
@@ -65,8 +65,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				<?php endif; ?>
 
-				<div class="proclean-footer-bottom">
-					<p class="proclean-copyright">
+				<div class="jk-footer-bottom">
+					<p class="jk-copyright">
 						<?php
 						/* translators: 1: current year, 2: site title. */
 						printf(

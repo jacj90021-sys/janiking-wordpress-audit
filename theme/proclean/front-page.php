@@ -2,8 +2,8 @@
 /**
  * Front Page template.
  *
- * Exact clone of the Jani-King homepage:
- * hero, stat counters, services, FAQ, CTA, client logos.
+ * Exact reconstruction of the Jani-King homepage:
+ * hero, stat counters, services, FAQ, why-jani-king, retention, blog, CTA.
  * Uses Jani-King's actual images and text.
  *
  * @package   ProClean
@@ -17,103 +17,111 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
+$theme_uri = get_template_directory_uri();
+
 ?>
-	<section class="proclean-hero">
-		<div class="proclean-container">
-			<div class="proclean-hero-inner">
-				<div class="proclean-hero-content">
-					<h1 class="proclean-hero-title">
+	<!-- Hero Section -->
+	<section class="jk-hero">
+		<div class="jk-container">
+			<div class="jk-hero-inner">
+				<div class="jk-hero-content">
+					<h1 class="jk-hero-title">
 						<?php esc_html_e( 'Commercial Cleaning Services', 'proclean' ); ?>
 					</h1>
-					<p class="proclean-hero-subtitle">
+					<p class="jk-hero-subtitle">
 						<?php esc_html_e( 'Jani‑King understands how important it is to know the latest information in promoting health and safety for our clients.', 'proclean' ); ?>
 					</p>
-					<div class="proclean-hero-actions">
-						<a class="proclean-button proclean-button--primary button cleaning-service" href="<?php echo esc_url( get_permalink( 8 ) ); ?>">
+					<div class="jk-hero-actions">
+						<a class="jk-button jk-button--primary" href="<?php echo esc_url( get_permalink( 8 ) ); ?>">
 							<?php esc_html_e( 'Learn More About Our Cleaning Services', 'proclean' ); ?>
 						</a>
-						<a class="proclean-button button franchise-opportunities" href="<?php echo esc_url( get_permalink( 10 ) ); ?>">
+						<a class="jk-button jk-button--link" href="<?php echo esc_url( get_permalink( 10 ) ); ?>">
 							<?php esc_html_e( 'Franchise Opportunities', 'proclean' ); ?>
 						</a>
 					</div>
 				</div>
-				<div class="proclean-hero-image">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/bnr-homepage-commercial.webp' ); ?>" alt="Commercial Cleaning" />
+				<div class="jk-hero-image">
+					<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-homepage-commercial.webp' ); ?>" alt="Commercial Cleaning" />
+				</div>
+				<div class="jk-hero-image">
+					<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-homepage-franchise.webp' ); ?>" alt="Franchise Opportunities" />
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="proclean-stats">
-		<div class="proclean-container">
-			<div class="proclean-stats-grid">
-				<div class="proclean-stat">
-					<span class="proclean-stat-number proclean-animate-pulse">120</span>
-					<p class="proclean-stat-label"><?php esc_html_e( 'Support Offices', 'proclean' ); ?></p>
+	<!-- Stat Counters -->
+	<section class="jk-stats">
+		<div class="jk-container">
+			<div class="jk-stats-grid">
+				<div class="jk-stat">
+					<span class="jk-stat-number jk-animate-pulse">120</span>
+					<p class="jk-stat-label"><?php esc_html_e( 'Support Offices', 'proclean' ); ?></p>
 				</div>
-				<div class="proclean-stat">
-					<span class="proclean-stat-number proclean-animate-pulse">10</span>
-					<p class="proclean-stat-label"><?php esc_html_e( 'Countries Internationally', 'proclean' ); ?></p>
+				<div class="jk-stat">
+					<span class="jk-stat-number jk-animate-pulse">10</span>
+					<p class="jk-stat-label"><?php esc_html_e( 'Countries Internationally', 'proclean' ); ?></p>
 				</div>
-				<div class="proclean-stat">
-					<span class="proclean-stat-number proclean-animate-pulse">6,900</span>
-					<p class="proclean-stat-label"><?php esc_html_e( 'Unit Franchises', 'proclean' ); ?></p>
+				<div class="jk-stat">
+					<span class="jk-stat-number jk-animate-pulse">6,900</span>
+					<p class="jk-stat-label"><?php esc_html_e( 'Unit Franchises', 'proclean' ); ?></p>
 				</div>
-				<div class="proclean-stat">
-					<span class="proclean-stat-number proclean-animate-pulse">9</span>
-					<p class="proclean-stat-label"><?php esc_html_e( 'Year Avg. Customer Retention Rate', 'proclean' ); ?></p>
+				<div class="jk-stat">
+					<span class="jk-stat-number jk-animate-pulse">9</span>
+					<p class="jk-stat-label"><?php esc_html_e( 'Year Avg. Customer Retention Rate', 'proclean' ); ?></p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="proclean-services">
-		<div class="proclean-container">
-			<header class="proclean-section-header">
-				<h2 class="proclean-section-title"><?php esc_html_e( 'Commercial Cleaning Services', 'proclean' ); ?></h2>
-			</header>
-			<div class="proclean-services-grid">
-				<?php
-				$services = array(
-					array(
-						'title' => __( 'Janitorial Services', 'proclean' ),
-						'link'  => get_permalink( 48 ),
-					),
-					array(
-						'title' => __( 'Disinfecting', 'proclean' ),
-						'link'  => get_permalink( 49 ),
-					),
-					array(
-						'title' => __( 'Green Cleaning', 'proclean' ),
-						'link'  => get_permalink( 50 ),
-					),
-					array(
-						'title' => __( 'Specialty Cleaning', 'proclean' ),
-						'link'  => get_permalink( 51 ),
-					),
-				);
-				foreach ( $services as $service ) :
-					?>
-					<article class="proclean-service-card">
-						<div class="proclean-service-card-body">
-							<h3 class="proclean-service-card-title"><?php echo esc_html( $service['title'] ); ?></h3>
-							<a class="proclean-service-card-link" href="<?php echo esc_url( $service['link'] ); ?>">
-								<?php esc_html_e( 'Learn more', 'proclean' ); ?>
-								<span class="proclean-arrow">&#8594;</span>
-							</a>
-						</div>
-					</article>
-				<?php endforeach; ?>
+	<!-- Services -->
+	<section class="jk-services">
+		<div class="jk-container">
+			<div class="jk-section-header">
+				<h2 class="jk-section-title"><?php esc_html_e( 'Commercial Cleaning Services', 'proclean' ); ?></h2>
+			</div>
+			<div class="jk-services-grid">
+				<article class="jk-service-card">
+					<div class="jk-service-card-image">
+						<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-cleaning-services.webp' ); ?>" alt="Commercial Cleaning Services" />
+					</div>
+					<div class="jk-service-card-body">
+						<h3 class="jk-service-card-title"><?php esc_html_e( 'Commercial cleaning services', 'proclean' ); ?></h3>
+						<p class="jk-service-card-text">
+							<?php esc_html_e( 'Professional commercial cleaning services for your business. Get a quote today for our effective and efficient cleaning services.', 'proclean' ); ?>
+						</p>
+						<a class="jk-service-card-link jk-button--link" href="<?php echo esc_url( get_permalink( 8 ) ); ?>">
+							<?php esc_html_e( 'Learn more', 'proclean' ); ?>
+							<span class="jk-arrow">&#8594;</span>
+						</a>
+					</div>
+				</article>
+				<article class="jk-service-card">
+					<div class="jk-service-card-image">
+						<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-franchise-opportunities.webp' ); ?>" alt="Franchise Opportunities" />
+					</div>
+					<div class="jk-service-card-body">
+						<h3 class="jk-service-card-title"><?php esc_html_e( 'Franchise opportunities', 'proclean' ); ?></h3>
+						<p class="jk-service-card-text">
+							<?php esc_html_e( 'Join the Jani‑King franchise network. Unit franchises, domestic and international franchising options.', 'proclean' ); ?>
+						</p>
+						<a class="jk-service-card-link jk-button--link" href="<?php echo esc_url( get_permalink( 10 ) ); ?>">
+							<?php esc_html_e( 'Learn more', 'proclean' ); ?>
+							<span class="jk-arrow">&#8594;</span>
+						</a>
+					</div>
+				</article>
 			</div>
 		</div>
 	</section>
 
-	<section class="proclean-faq">
-		<div class="proclean-container">
-			<header class="proclean-section-header">
-				<h2 class="proclean-section-title"><?php esc_html_e( 'Frequently Asked Questions', 'proclean' ); ?></h2>
-			</header>
-			<div class="proclean-faq-list">
+	<!-- FAQ -->
+	<section class="jk-faq">
+		<div class="jk-container">
+			<div class="jk-section-header">
+				<h2 class="jk-section-title"><?php esc_html_e( 'Frequently Asked Questions', 'proclean' ); ?></h2>
+			</div>
+			<div class="jk-faq-list">
 				<?php
 				$faqs = array(
 					array(
@@ -136,51 +144,114 @@ get_header();
 				foreach ( $faqs as $index => $faq ) :
 					$open = ( 0 === $index ) ? ' open' : '';
 					?>
-					<div class="proclean-faq-item<?php echo esc_attr( $open ); ?>">
-						<div class="proclean-faq-question" onclick="this.parentElement.classList.toggle('open')">
+					<div class="jk-faq-item<?php echo esc_attr( $open ); ?>">
+						<div class="jk-faq-question" onclick="this.parentElement.classList.toggle('open')">
 							<?php echo esc_html( $faq['q'] ); ?>
-							<span class="proclean-check">&#10003;</span>
+							<span class="jk-check">&#10003;</span>
 						</div>
-						<div class="proclean-faq-answer"><?php echo esc_html( $faq['a'] ); ?></div>
+						<div class="jk-faq-answer"><?php echo esc_html( $faq['a'] ); ?></div>
 					</div>
 				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
 
-	<section class="proclean-cta">
-		<div class="proclean-container">
-			<div class="proclean-cta-inner">
-				<h2 class="proclean-cta-title"><?php esc_html_e( 'Get a FREE Cleaning Quote From Your Local Jani‑King Office.', 'proclean' ); ?></h2>
-				<p class="proclean-cta-text"><?php esc_html_e( 'Fill out the form and a local office will contact you to schedule a free consultation.', 'proclean' ); ?></p>
-				<a class="proclean-button proclean-button--primary" href="<?php echo esc_url( get_permalink( 13 ) ); ?>">
-					<?php esc_html_e( 'Get a Free Quote', 'proclean' ); ?>
+	<!-- Why Jani-King -->
+	<section class="jk-why-jk">
+		<div class="jk-container">
+			<p class="jk-why-intro">
+				<?php esc_html_e( 'A dependable and well‑established franchise brand with over 56 years of trust.', 'proclean' ); ?>
+			</p>
+			<div class="jk-why-grid">
+				<?php
+				$why_items = array(
+					array(
+						'icon'  => 'icon-SpillCleanup',
+						'title' => __( 'Spill Cleanup', 'proclean' ),
+					),
+					array(
+						'icon'  => 'icon-Disinfecting',
+						'title' => __( 'Disinfecting', 'proclean' ),
+					),
+					array(
+						'icon'  => 'icon-EPProducts',
+						'title' => __( 'EP Products', 'proclean' ),
+					),
+					array(
+						'icon'  => 'icon-Extraction',
+						'title' => __( 'Extraction', 'proclean' ),
+					),
+				);
+				foreach ( $why_items as $item ) :
+					?>
+					<div class="jk-why-item">
+						<div class="jk-why-icon">
+							<img src="<?php echo esc_url( $theme_uri . '/assets/images/' . $item['icon'] . '.webp' ); ?>" alt="<?php echo esc_attr( $item['title'] ); ?>" />
+						</div>
+						<h4 class="jk-why-title"><?php echo esc_html( $item['title'] ); ?></h4>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<div class="jk-why-actions" style="text-align:center; margin-top: var(--jk-space-lg);">
+				<a class="jk-button jk-button--primary" href="<?php echo esc_url( get_permalink( 8 ) ); ?>">
+					<?php esc_html_e( 'Learn More About Our Cleaning Services', 'proclean' ); ?>
 				</a>
 			</div>
 		</div>
 	</section>
 
-	<section class="proclean-clients">
-		<div class="proclean-container">
-			<header class="proclean-section-header">
-				<h2 class="proclean-section-title"><?php esc_html_e( 'Our Proud Partnerships &amp; Clients', 'proclean' ); ?></h2>
-			</header>
-			<div class="proclean-client-logos">
-				<?php
-				$clients = array(
-					__( 'AT&amp;T Stadium', 'proclean' ),
-					__( 'Bridgestone Arena', 'proclean' ),
-					__( 'Cains', 'proclean' ),
-					__( 'Camping World Stadium', 'proclean' ),
-					__( 'Carolina Panthers', 'proclean' ),
-					__( 'Chaifetz Arena', 'proclean' ),
-				);
-				foreach ( $clients as $client ) :
+	<!-- Customer Retention -->
+	<section class="jk-retention">
+		<div class="jk-container">
+			<div class="jk-retention-image">
+				<img src="<?php echo esc_url( $theme_uri . '/assets/images/bnr-CustomerRetention2.png' ); ?>" alt="Customer Retention" />
+			</div>
+			<div class="jk-retention-content">
+				<span class="jk-retention-number">9</span>
+				<p class="jk-retention-label">
+					<?php
+					/* translators: retention stat label. */
+					printf(
+						esc_html__( 'Year Avg. Customer Retention Rate vs. other competitive commercial cleaning companies (1-yr. avg.)', 'proclean' )
+					);
 					?>
-					<div class="proclean-client-logo">
-						<?php echo esc_html( $client ); ?>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Blog -->
+	<section class="jk-blog">
+		<div class="jk-container">
+			<div class="jk-section-header">
+				<h2 class="jk-section-title"><?php esc_html_e( 'Latest News', 'proclean' ); ?></h2>
+			</div>
+			<div class="jk-blog-grid">
+				<?php
+				$blog_banners = array(
+					'Banner-Templet-15.png',
+					'Banner-Templet-51.png',
+					'Banner-Templet-52.png',
+				);
+				foreach ( $blog_banners as $banner ) :
+					?>
+					<div class="jk-blog-item">
+						<img src="<?php echo esc_url( $theme_uri . '/assets/images/' . $banner ); ?>" alt="Blog Post" />
 					</div>
 				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="jk-cta">
+		<div class="jk-container">
+			<div class="jk-cta-inner">
+				<h2 class="jk-cta-title"><?php esc_html_e( 'Get a FREE Cleaning Quote From Your Local Jani‑King Office.', 'proclean' ); ?></h2>
+				<p class="jk-cta-text"><?php esc_html_e( 'Fill out the form and a local office will contact you to schedule a free consultation.', 'proclean' ); ?></p>
+				<a class="jk-button jk-button--primary" href="<?php echo esc_url( get_permalink( 13 ) ); ?>">
+					<?php esc_html_e( 'Get a Free Quote', 'proclean' ); ?>
+				</a>
 			</div>
 		</div>
 	</section>

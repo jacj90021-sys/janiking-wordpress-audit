@@ -8,16 +8,50 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- PROJECT.md — project objective and scope (dual objective: website recreation + ThemeForest product)
-- TASKS.md — implementation stages and progress (8 phases)
-- DESIGN-SYSTEM.md — observed Jani-King visual system
+- PROJECT.md — project objective and scope (exact Jani-King reference clone)
+- TASKS.md — implementation stages and progress
+- DESIGN-SYSTEM.md — observed Jani-King visual system (measured colors, fonts)
 - documentation/SITEMAP.md — page inventory (~331 pages, ~1,046 posts)
 - documentation/ARCHITECTURE.md — proposed WordPress implementation (standalone theme + companion plugin)
 - documentation/COMPETITOR-RESEARCH.md — 10 ThemeForest cleaning-theme benchmarks
 - documentation/FEATURES.md — product feature list
 - documentation/THEMEFOREST-COMPLIANCE.md — Envato requirements checklist
-- documentation/QA-REPORT.md — test evidence placeholder
+- documentation/QA-REPORT.md — test evidence (reference inspection + live tests)
 - AGENTS.md — lint/typecheck commands
+- README.md — installation and usage
+
+### Changed
+
+- PROJECT.md updated to exact Jani-King clone scope (recreate reference first,
+  modify into our own product in Phase 2)
+- TASKS.md updated: Phase 1 = exact reference reconstruction; Phase 2 = modify
+  into our own product (awaiting Phase 1 approval)
+- DESIGN-SYSTEM.md updated with measured values from live site (Poppins font,
+  #2c3e50 base, #efefef secondary, #EE5513 accent, exact section order)
+
+### Added — Phase 1 (Exact Jani-King reference reconstruction on live WordPress)
+
+- theme/proclean/template-parts/header.php — exact header: logo (left),
+  mega-menu nav (center), search icon + phone/CTA (right)
+- theme/proclean/template-parts/footer.php — exact footer structure
+- theme/proclean/assets/css/proclean.css — exact reference styling: Poppins
+  font, #2c3e50/#efefef/#EE5513 colors, pulse-grow animation, mega-menu styles
+- theme/proclean/front-page.php — exact homepage section order: hero (2 image
+  columns), stat counters (120/10/6,900/9), services (2 columns), FAQ, Why
+  Jani-King (4 icon/heading pairs), Customer Retention, Blog, CTA
+- theme/proclean/inc/class-proclean-mega-menu-walker.php — mega menu walker
+  class (one class per file)
+- theme/proclean/assets/images/ — actual Jani-King assets downloaded:
+  jk-logo.png, bnr-homepage-commercial.webp, bnr-homepage-franchise.webp,
+  bnr-cleaning-services.webp, bnr-franchise-opportunities.webp,
+  bnr-CustomerRetention2.png, Banner-Templet-{15,51,52}.png,
+  icon-CircleCheck-Orange.webp, icon-CircleCheck-DarkTeal.webp,
+  icon-SpillCleanup-*.png, icon-Disinfecting-*.png, icon-EPProducts-*.png,
+  icon-Extraction-*.png
+- wp-config.php: HTTPS detection behind localtunnel proxy (X-Forwarded-Proto)
+  to fix mixed content on public preview
+- documentation/QA-REPORT.md — real test evidence from live reference
+  inspection + live WordPress installation
 - README.md — installation and usage
 
 ### Changed

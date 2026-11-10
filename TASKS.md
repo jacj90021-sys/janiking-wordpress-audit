@@ -1,6 +1,6 @@
 # TASKS.md — Implementation Stages and Progress
 
-Status: **Phase 4 — Exact Jani-King clone implemented on live WordPress.**
+Status: **Phase 1 — Exact Jani-King reference reconstruction implemented on live WordPress.**
 
 Live environment: WordPress 7.1.4 at http://proclean.local, exposed publicly via
 https://loud-roses-stand.loca.lt (single preview URL). All created pages return
@@ -44,22 +44,36 @@ Jani-King logo, images, and text used throughout.
 - [x] Configure .gitignore, AGENTS.md, README.md
 - [x] Set up CHANGELOG.md
 
-### Phase 4 — Website recreation (Jani-King reference)
+### Phase 1 — Exact reference reconstruction (implemented on live WordPress)
 
-- [x] Build header (logo, mega menu, search, phone, CTA)
-- [x] Build footer (multi-column, socials, copyright, address)
-- [x] Build homepage sections (hero, stats, services, FAQ, client logos, video)
-- [x] Build reusable page templates (service, industry, franchise, location)
-- [x] Build service layouts (overview + detail) — page-service.php template + 14 service pages created
-- [x] Build industry layouts (overview + detail) — page-industry.php template + 17 industry pages created
-- [x] Build franchise layouts (overview) — page-franchise.php template + 5 franchise subpages created
-- [x] Build location layouts (template-based city page) — page-location.php template + 9 city pages created
-- [x] Build blog and content layouts (archive, single, search)
-- [x] Implement page inventory (documentation/SITEMAP.md)
-- [x] Reproduce reference interactions (mega menu, FAQ accordion structure, quote form)
-- [x] Live WordPress environment: WP 7.1.4, theme + Elementor + ProClean Core + Contact Form 7 active
-- [x] Contact form (CF7 Quote Request Form) embedded on Get a Quote & Contact Us pages
-- [x] Public preview tunnel (loca.lt) serving full CSS/JS over HTTPS; mixed content fixed via wp-config HTTPS detection
+- [x] Inspect live Jani-King site (sitemap, homepage, key pages) via curl
+- [x] Build verified page inventory from live sitemap + navigation (331 pages,
+      1,046 posts = 1,377 URLs)
+- [x] Confirm preview tunnel (loca.lt) live and assets load over HTTPS
+- [x] Rebuild header.php with exact mega-menu + logo + search + CTA structure
+      (Poppins font, #2c3e50 base, #efefef secondary, #EE5513 accent)
+- [x] Rebuild footer.php with exact footer structure
+- [x] Rebuild proclean.css with exact reference styling (Poppins, colors,
+      layout, pulse-grow animation)
+- [x] Rebuild front-page.php with exact section order (hero, stats, services,
+      FAQ, why-jani-king, retention, blog, CTA) using actual Jani-King images
+      and text
+- [x] Verify homepage loads correctly via tunnel with all assets (HTTP 200,
+      no mixed content)
+- [x] PHP lint clean (15 files), phpcs WordPress standard clean (0 errors,
+      0 warnings)
+
+**NOT yet verified (requires browser access):**
+- [ ] Pixel-perfect screenshot comparison vs live reference
+- [ ] Mobile/tablet responsive layout verification
+- [ ] Mega-menu hover transitions and sticky header animation testing
+
+### Phase 2 — Modify into our own product (NOT started — awaiting Phase 1 approval)
+
+- [ ] Replace Jani-King branding with our own branding
+- [ ] Replace text and content with our own
+- [ ] Replace reference images with original/licensed assets
+- [ ] Replace links, forms and business details
 
 ### Phase 5 — Product functionality
 
@@ -110,7 +124,7 @@ Jani-King logo, images, and text used throughout.
 | Date | Phase | Note |
 |------|-------|------|
 | 2026-11-10 | 3 | WordPress foundation complete: theme + plugin skeleton, template hierarchy, Customizer, assets, linting/phpcs clean |
-| 2026-11-10 | 4 | Live WordPress environment (WP 7.1.4) at http://proclean.local; public tunnel https://loud-roses-stand.loca.lt; ~26 pages created & HTTP-verified; PHP lint + phpcs clean; mixed content fixed |
+| 2026-11-10 | 1 | Exact Jani-King reference reconstruction: live WP 7.1.4 at http://proclean.local; public tunnel https://loud-roses-stand.loca.lt; header/footer/template-parts rebuilt with reference structure; front-page.php rebuilt with exact section order and actual Jani-King images/text; phpcs clean; all pages HTTP-verified via tunnel |
 
 ## Repository (GitHub)
 
